@@ -1,0 +1,60 @@
+.overallContainer {
+  display: grid;
+  align-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 10vh;
+  font-family: Arial, sans-serif;  
+  background-image: url('../images/scroll_two.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.textContainer{
+  padding-left: 3vw;
+}
+.number{
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: maroon;
+  max-height: 3.5rem;    
+}
+.text{
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;  
+}
+
+.logosContainer {
+  padding: 5vh 3vw;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(100px, 1fr) );
+  place-items: end center;
+  place-content: center center;
+  row-gap: 1vh; 
+}
+.logo {  
+  max-width: 90px;
+  max-height: 75px;   
+}
+
+@media screen and (min-width: 1150px) {
+  .logosContainer {    
+    grid-template-columns: repeat( auto-fit, minmax(120px, 1fr));    
+  }
+  .logo {  
+    max-width: 110px;
+    max-height: 90px;   
+  }  
+}
+
+@media screen and (min-width: 1250px) {
+  .logosContainer {    
+    grid-template-columns: repeat( auto-fit, minmax(130px, 1fr));    
+  }
+  .logo {  
+    max-width: 120px;
+    max-height: 100px;   
+  }
+}
+  
+

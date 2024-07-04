@@ -1,0 +1,170 @@
+  .overallContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 36% 28% 36%;
+  }
+  .backgroundOdd {
+    background: linear-gradient(
+      to bottom,
+      rgba(37, 37, 37, 0.7),
+      rgba(110, 110, 110, 0.7) 10%
+    );
+    padding-left: 2.5%;
+    padding-right: 2.5%;    
+  }
+  .backgroundEven {
+    background: linear-gradient(
+      to bottom,
+      rgba(37, 37, 37, 0.7),
+      rgba(101, 70, 70, 0.7) 10%
+    );    
+  }
+  .title{
+    position: absolute;
+    width: 100vw;
+    top: 10vh;
+    left: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;    
+    text-align: center;    
+  }    
+  .allProjectsContainer {
+    position: relative;
+    margin-top: 20vh;
+    width: 100vw;
+    height: 80vh;    
+    display: grid;
+    grid-template-columns: repeat(3, 28%);   
+    justify-content: space-evenly;    
+  }
+  .singleProjectOverAllContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 80%;    
+    align-content: center;    
+    justify-content: center;
+    background-color: rgba(20, 20, 20, 0.8); 
+    z-index: 1000;           
+  }
+  .buttonContainer {
+    display: grid;
+    width: 100%;
+    justify-content: center;    
+    position: absolute;
+    top: 20px;    
+  }
+  .backButton {
+    color: rgb(109, 76, 76);
+    background-color: rgb(229, 203, 203);
+    height: 30px;
+  }
+  .projectCardContainer {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 5%;
+    place-content: top center;
+  }  
+  .imageAndArrowsContainer {           
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100%;
+  }  
+  .arrowIcons {        
+    display: grid;
+    color: rgb(229, 203, 203);
+    place-content: center center;    
+  }
+  .arrowPrevious, .arrowNext  {
+    display: none;    
+  }  
+  .infoImageContainer {
+    width: 100%;
+    height: 90%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;      
+  }
+  .imageContainer {
+    place-content: center center;
+  }  
+  .projectInfo > p {
+    font-size: 0.8rem;
+    color: white;
+  }
+  .image {
+    width: 100%;
+    height: 470px;         
+  }
+  .video {
+    width: 100%;    
+    height: 470px;  
+  }  
+  .circlesContainer{
+    display: flex;
+    justify-self: center;    
+  }
+  .circle {
+    width: 10px;        
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    justify-self: center; 
+    align-self: baseline;     
+  }
+  .circleMargin:not(:last-child) {
+    margin-right: 7px;
+  }
+  .activeCircle, .circle:hover {
+    background-color: lightgray;
+  }
+  
+
+  @media screen and (max-width: 900px) {
+    .singleProjectOverAllContainer {           
+      grid-template-columns: 80%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .overallContainer {      
+      grid-template-columns: 50% 50%;
+      height: 70vh;
+    }
+    .hideDiv {
+      display: none;
+    }
+    .allProjectsContainer {
+      position: relative;
+      margin-top: 15vh;           
+      width: 100vw;      
+      display: grid;
+      grid-template-columns: repeat(2, 40%);
+      justify-content: space-evenly;    
+    } 
+    .image {      
+      height: 300px;         
+    }      
+  }
+
+  @media screen and (max-width: 500px) {
+    .overallContainer {      
+      grid-template-columns: 100%;
+      height: 150vh;
+    }
+    .allProjectsContainer {
+      position: relative;
+      grid-template-columns: 95%;
+      top: 15vh;
+      display: grid;
+        
+    }    
+  }

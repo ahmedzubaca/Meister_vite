@@ -1,0 +1,124 @@
+.container{  
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100vw;
+  height: 10vh;
+  flex-direction: row;
+  align-items: center;  
+  z-index: 1000;  
+}
+.containerBackground {
+  background-color: rgb(169, 136, 136);
+  opacity: 0.8;  
+}  
+.logoMenueMediaContainer { 
+  display: flex;  
+  align-items: center;  
+}
+.menuContainer{
+  width: 20%;
+  padding-left: 5%;
+  text-align: center;
+}
+.menue {    
+  min-width: 25px;
+  min-height: 25px;    
+  cursor: pointer;
+  color: white;
+}
+.logoContainer{
+  width: 50%;
+  text-align: center;  
+}
+.logo {   
+  width: 180px;
+  height: 50px;  
+}
+.socialMediaContainer{
+  width: 25%;
+  text-align: center;  
+}
+.facebook, .instagram { 
+  padding-left: 5%; 
+  color: white;
+  min-width: 20px;
+  min-height: 20px;    
+}
+.linksContainerOnMenueClick {
+  display: flex;    
+  flex-direction: column; 
+  list-style-type: none; 
+  align-self: start;
+  gap: 25px;  
+}
+.menuClosed {
+  display: flex;    
+  flex-direction: column; 
+  list-style-type: none; 
+  align-self: start;
+  gap: 25px;  
+  pointer-events: none;
+}
+
+@media screen and (min-width: 500px) {
+  .container{  
+    position: fixed;
+    top: 10px;
+    left: 0;    
+  }
+  .containerBackground {
+    top: 0;
+  }   
+  .linksContainerOnMenueClick {
+    width: 20%;
+    text-align: center;  
+  }
+  .menuClosed {
+    width: 20%;
+    display: flex;    
+    flex-direction: column; 
+    list-style-type: none; 
+    align-self: start;
+    text-align: center;
+    gap: 25px;  
+    pointer-events: none;    
+  }
+}
+
+@media  screen and (min-width: 900px) {  
+  /* .container{  
+    position: fixed;
+    top: 0;
+    left: 0;
+  } */
+  .logoMenueMediaContainer { 
+    width: 100%;    
+  }
+  .logoContainer{      
+    text-align: center;    
+    width: 50%;     
+  }
+  .logo {   
+    width: 220px;
+    height: 55px;  
+  }   
+  .linksContainer{
+    display: flex;
+    list-style-type: none; 
+    margin-right: 3%;
+    min-width: 32%;
+    min-height: 1.5rem;    
+    text-align: center;
+    justify-content: space-evenly;    
+  }  
+  .socialMediaContainer{
+    width: 10%;
+    text-align: left;
+    margin: 0; 
+    padding: 0;    
+  } 
+  .facebook, .instagram { 
+    padding-right: 5%;     
+  }
+}

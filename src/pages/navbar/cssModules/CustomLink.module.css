@@ -1,0 +1,32 @@
+.menuItem {  
+  position: relative;
+  cursor: pointer;  
+  min-width: 15vw;   
+}
+.menuItemLink {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 400; 
+}
+.active {  
+  font-weight: 500;
+}
+@media screen and (min-width: 500px ) {
+  .menuItemLink {
+    font-size: 1rem;          
+  }  
+  a.menuItemLink:hover, span.menuItemLink:hover {    
+    font-size: 1.1rem;
+    font-weight: 500;   
+  }  
+}
+@media screen and (min-width: 900px ) {
+  .menuItem {
+    min-width: 25%;   
+    cursor: pointer;    
+  }
+  .menuItemLink {       
+    font-size: 1rem; 
+  }  
+}

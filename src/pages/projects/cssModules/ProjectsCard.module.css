@@ -1,0 +1,95 @@
+
+.overallContainer {  
+  display: grid;
+  grid-template-rows: 100%;  
+  align-content: baseline;  
+}
+.cardContainer {
+  position: relative;  
+  display: grid;
+  align-content: baseline;  
+}
+.imgContainer {
+  position: relative;   
+  align-content: end;  
+}
+.projectImg {
+  display: grid;
+  width: 100%;
+  max-height: 225px;
+  min-height: 200px;
+  cursor: pointer;  
+}
+.learnMore {
+  display: grid;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  place-content: center center;  
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.projectImgHovered {
+  filter: brightness(0.6);
+} 
+.projectInfo {
+  height:2.3rem;
+  background-color: rgb(107, 109, 108);
+  opacity: 0.5;
+  cursor: pointer;
+}
+.projectInfoHovered {
+  background-color: rgb(43, 42, 42);  
+}
+.projectTitle {  
+  text-align: center;  
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(197, 194, 194);  
+}
+.projectSize {
+  text-align: center;  
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(197, 194, 194);
+}
+
+@media screen and (max-width: 900px) {
+  .projectImg {
+    display: grid;
+    width: 100%;
+    min-height: none;
+    max-height: 180px;
+    min-height: 180px;
+    cursor: pointer;  
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cardContainer {
+    margin-bottom: 2vh; 
+  }
+  .projectImg {
+    min-height: 180px;
+  }
+  .learnMore {
+    font-size: 0.8rem;
+  }  
+}
+
+@media screen and (max-width: 500px) {
+  .overallContainer {
+    grid-template-columns: 90%;    
+    justify-content: space-around;    
+  } 
+  .projectImg {
+    display: grid;
+    width: 100%;
+    max-height: 225px;    
+    cursor: pointer;  
+  }  
+}

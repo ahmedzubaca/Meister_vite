@@ -1,0 +1,199 @@
+  .pageContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+  }
+  .backgroundContainer {
+    display: grid;    
+    grid-area: 1 / 1 / 3 / 4;
+    grid-template-columns: 36% 28% 36%;
+  }     
+  .backgroundLeft {
+    display: grid;
+    grid-area: 1 / 1 / 2 / 2;
+    background: linear-gradient(
+      to bottom,
+      rgba(37, 37, 37, 0.7),
+      rgba(110, 110, 110, 0.7) 10%
+    );     
+  }
+  .backgroundMiddle {
+    grid-area: 1 / 2 / 2 / 3;
+    background: linear-gradient(
+      to bottom,
+      rgba(37, 37, 37, 0.7),
+      rgba(101, 70, 70, 0.7) 10%
+    );    
+  }
+  .backgroundRight {
+    grid-area: 1 / 3 / 2 / 4;
+    background: linear-gradient(
+      to bottom,
+      rgba(37, 37, 37, 0.7),
+      rgba(110, 110, 110, 0.7) 10%
+    );     
+  }
+  .projectsContainer {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+  .title{
+    position: absolute;
+    width: 100vw;
+    top: 10vh;
+    left: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;    
+    text-align: center;    
+  }    
+  .allProjectsContainer {
+    position: relative;
+    margin-top: 20vh;
+    width: 100vw;
+    height: 80vh;    
+    display: grid;
+    grid-template-columns: repeat(3, 28%);   
+    justify-content: space-evenly;    
+  }
+  .footerContainer {
+    grid-area: 2 / 1 / 3 / 4;
+  }
+
+  /* Beginning of single project styles  */
+
+  .singleProjectOverAllContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 80%;    
+    align-content: center;    
+    justify-content: center;
+    background-color: rgba(20, 20, 20, 0.8); 
+    z-index: 1000;           
+  }
+  .buttonContainer {
+    display: flex;
+    width: 100%;    
+    justify-content: center;
+    align-content: center;    
+    position: absolute;
+    top: 10vh;
+  }
+  .backButton {
+    width: 150px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(76, 59, 59);
+    background-color: rgb(233, 226, 226);
+    height: 30px;
+  }
+  .projectCardContainer {
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 5%;
+    place-content: top center;
+  }  
+  .imageAndArrowsContainer {           
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100%;
+  }  
+  .arrowIcons {        
+    display: grid;
+    color: rgb(229, 203, 203);
+    place-content: center center;    
+  }
+  .arrowPrevious, .arrowNext  {
+    display: none;    
+  }  
+  .infoImageContainer {
+    width: 100%;
+    height: 90%;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;      
+  }
+  .imageContainer {
+    place-content: center center;
+  }  
+  .projectInfo > p {
+    font-size: 0.8rem;
+    color: white;
+  }
+  .image {
+    width: 100%;
+    height: 470px;         
+  }
+  .video {
+    width: 100%;    
+    height: 470px;  
+  }  
+  .circlesContainer{
+    display: flex;
+    justify-self: center;    
+  }
+  .circle {
+    width: 10px;        
+    height: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    justify-self: center; 
+    align-self: baseline;     
+  }
+  .circleMargin:not(:last-child) {
+    margin-right: 7px;
+  }
+  .activeCircle, .circle:hover {
+    background-color: lightgray;
+  }  
+
+  @media screen and (max-width: 900px) {
+    .singleProjectOverAllContainer {           
+      grid-template-columns: 80%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .pageContainer {
+      display: grid;
+        
+      background: linear-gradient(
+        to bottom,
+        rgba(37, 37, 37, 0.7),
+        rgba(101, 70, 70, 0.7) 10%      
+      );   
+    }
+    .backgroundContainer {     
+      grid-template-columns: 50% 50%;      
+    }    
+    
+    .allProjectsContainer {      
+      margin-top: 20vh;      
+      grid-template-columns: repeat(2, 40%);
+      justify-content: space-evenly;
+      overflow-y: auto;    
+    }     
+    .image {      
+      height: 300px;         
+    }      
+  }
+  @media screen and (max-width: 500px) {
+    .allProjectsContainer {      
+      grid-template-columns: 90%;
+    }
+
+     /* Beginning of single project styles  */
+
+     .singleProjectOverAllContainer {      
+      grid-template-columns: 95%;
+    }
+
+    .imageAndArrowsContainer {           
+      display: grid;
+      grid-template-columns: 5% 90% 5%;
+      grid-template-rows: 100%;
+    }
+  }
