@@ -38,10 +38,10 @@ export const projectsData =
     },      
     {
       projectId: 'p2_kiseljakBarFloor',
-      title: 'Kiseljak bar floor',
+      title: 'KISELJAK BAR FLOOR',
       location: 'Kiseljak',
       investor: 'BAR FLOR d.o.o.',
-      size: '16 000 m',
+      size: '16 000',
       coverImage: p2_cover,
       contentImages: [p2_cover,p21, p22, p23, p24],
       video:''      
@@ -51,7 +51,7 @@ export const projectsData =
       title: 'KROV POTOČARI',
       location: 'Potočari',
       investor: 'TIKA',
-      size: '16 500 m',
+      size: '16 500',
       coverImage: p3_cover,
       contentImages: [p3_cover, p31, p32],
       //video: p33_video      
@@ -61,7 +61,7 @@ export const projectsData =
       title: 'NOVA VOGOŠĆA',
       location: 'VOGOŠĆA',
       investor: 'NOVA VOGOŠĆA d.o.o.',
-      size: '20 000 m',
+      size: '20 000',
       coverImage: p4_cover,
       contentImages: [p4_cover, p41, p42],
       video:''             
@@ -71,7 +71,7 @@ export const projectsData =
       title: 'VIA PAX',
       location: 'LOKACIJA',
       investor: 'INVESTITOR',
-      size: '3 800 m',
+      size: '3 800',
       coverImage: p5_cover,
       contentImages: [p5_cover, p51, p52]
       //video: p53_video      
@@ -81,7 +81,7 @@ export const projectsData =
       title: 'VILLA VERDE',
       ocation: 'Vogošća',
       investor: 'INVESTITOR',
-      size: '3 500 m',
+      size: '3 500',
       coverImage: p6_cover,
       contentImages: [p6_cover, p61],
       //video: p62_video     

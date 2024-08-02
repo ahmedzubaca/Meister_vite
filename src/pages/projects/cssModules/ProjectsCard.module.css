@@ -16,8 +16,6 @@
 .projectImg {
   display: grid;
   width: 100%;
-  max-height: 225px;
-  min-height: 200px;
   cursor: pointer;  
 }
 .learnMore {
@@ -41,6 +39,7 @@
   background-color: rgb(107, 109, 108);
   opacity: 0.5;
   cursor: pointer;
+  padding-bottom: 5px;
 }
 .projectInfoHovered {
   background-color: rgb(43, 42, 42);  
@@ -55,30 +54,19 @@
   text-align: center;  
   font-size: 0.9rem;
   font-weight: 500;
-  color: rgb(197, 194, 194);
+  color: rgb(197, 194, 194);  
 }
 
 @media screen and (max-width: 900px) {
   .projectImg {
     display: grid;
     width: 100%;
-    min-height: none;
-    max-height: 180px;
-    min-height: 180px;
+    min-height: none;    
     cursor: pointer;  
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .cardContainer {
-    margin-bottom: 2vh; 
-  }
-  .projectImg {
-    min-height: 180px;
   }
   .learnMore {
     font-size: 0.8rem;
-  }  
+  } 
 }
 
 @media screen and (max-width: 500px) {
