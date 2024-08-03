@@ -3,16 +3,17 @@ import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled } from "react-icons/tb"
 import { renderContent } from '../helperFiles/imageVideoRender';
 import useWindowResize from '../helperFiles/windowWidth';
 import styles from '../cssModules/ProjectsCard.module.css';
-import mobileStyles from '../cssModules/SingleProject.module.css';
+import mobileStyles from '../cssModules/MobileProjectsRender.module.css';
 import PropTypes from 'prop-types';
 
-const MobileProjectsRender = ({project}) => {
-  const windowSize = useWindowResize();
+const MobileProjectsRender = ({project}) => {   
   const touchStartX = useRef(null);
   const [ slideIndex, setSlideIndex ] = useState(0);
-  const [ sliderMob, setSliderMob] = useState(false);
-  let arrowSize = windowSize.windowWidth > 900 ? 90 : windowSize.windowWidth > 700 ? 70 : 55;
+  const [ sliderMob, setSliderMob] = useState(false);  
   const images = project.contentImages;
+  const windowSize = useWindowResize();
+  const isPortrait = windowSize.windowWidth < 500; 
+  const isLandscape = (windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500 ;
   
   const handlePreviousArrow = () => {
     if(slideIndex > 0)
@@ -70,16 +71,15 @@ const MobileProjectsRender = ({project}) => {
         <h4> {project.size}  m<sup>2</sup> </h4>
       </div>
       <div className={mobileStyles.imgContainer}>
-      <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowNext : ''}`}
-              size={arrowSize} 
+      <TbArrowBadgeLeftFilled className={`${mobileStyles.previous} ${slideIndex > 0 ? mobileStyles.show : '' }`}
+              size={30} 
               onClick={handlePreviousArrow}
       />               
       {
         renderContent(images[slideIndex], styles.image, styles.video )
-      }            
-
+      }
       <TbArrowBadgeRightFilled className={`${mobileStyles.next} ${slideIndex < images.length - 1 ? mobileStyles.show : '' }`}
-              size={40}
+              size={30}
               onClick={handleNextArrow}
       />            
         <div className={styles.dots}>
