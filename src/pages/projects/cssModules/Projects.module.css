@@ -18,7 +18,7 @@
     text-align: center;    
   }  
   .titleLandscape { 
-    top: 15vh;
+    top: 15vh;    
   }
 
   .projectsCardsContainer { 
@@ -34,14 +34,25 @@
   }  
   .projectsCardsContainerLandscape {
     margin-top: 30vh;     
-    grid-template-columns: repeat(2, 45%); 
-    
-  }  
+    grid-template-columns: repeat(2, 45%);     
+  } 
+
+  @media screen and (max-width: 1100px) {
+    .title {
+      font-size: 1.6rem;
+    } 
+    .titleLandscape {
+      font-size: 1.8rem;
+    }  
+  } 
 
   @media screen and (max-width: 900px) {
     .pageContainer {        
       background: linear-gradient(to right,rgba(110, 110, 110, 0.7) 34%, rgba(101, 70, 70, 0.7) 34%, rgba(101, 70, 70, 0.7) 66%, rgba(110, 110, 110, 0.7) 66%);
-    }    
+    } 
+    .title {
+      font-size: 1.4rem;
+    }   
     .projectsCardsContainer {
       grid-template-columns: repeat(3, 32%);
     }   
@@ -60,6 +71,9 @@
     .pageContainer {        
       background: rgba(101, 70, 70, 0.7);
     }
+    .title {
+      font-size: 1.8rem;
+    }    
     .projectsCardsContainer {      
       grid-template-columns: 90%;
     }
