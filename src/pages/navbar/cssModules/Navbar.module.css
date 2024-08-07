@@ -1,15 +1,18 @@
 .container{  
   position: fixed;
-  top: 20px;
+  top: 0px;
   left: 0;
   width: 100vw;
   height: 10vh;
   flex-direction: row;
   align-items: center;  
-  z-index: 1000;  
+  z-index: 1000;
+  padding-top: 20px;
+  box-sizing: border-box;  
 }
 .containerBackground {
   background-color: rgb(169, 136, 136);
+  padding-top: 20px;
   opacity: 0.8;  
 }  
 .logoMenueMediaContainer { 

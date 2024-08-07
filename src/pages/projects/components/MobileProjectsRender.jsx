@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled } from "react-icons/tb";
 import { renderContent } from '../helperFiles/imageVideoRender';
-import useWindowResize from '../helperFiles/windowWidth';
+//import useWindowResize from '../helperFiles/windowWidth';
 import styles from '../cssModules/ProjectsCard.module.css';
 import mobileStyles from '../cssModules/MobileProjectsRender.module.css';
 import PropTypes from 'prop-types';
@@ -11,9 +11,9 @@ const MobileProjectsRender = ({project}) => {
   const [ slideIndex, setSlideIndex ] = useState(0);
   const [ sliderMob, setSliderMob] = useState(false);  
   const images = project.contentImages;
-  const windowSize = useWindowResize();
-  const isPortrait = windowSize.windowWidth < 500; 
-  const isLandscape = (windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500 ;
+  //const windowSize = useWindowResize();
+  // const isPortrait = windowSize.windowWidth < 500; 
+  // const isLandscape = (windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500 ;
   
   const handlePreviousArrow = () => {
     if(slideIndex > 0)

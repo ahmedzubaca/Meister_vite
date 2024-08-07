@@ -37,48 +37,48 @@ const ProjectsDetails = () => {
 
   return (
     <>
-      <Projects />      
-      <div className={styles.singleProjectOverAllContainer}>
+      <div className={styles.backgroundProjects}>
+        <Projects />
+      </div>      
+      <div className={styles.pageContainer}>
         <div className={styles.buttonContainer}>
           <button className={styles.backButton}
               onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
           </button>
         </div>
-        <div className={styles.projectCardContainer}>          
+        <div className={styles.projectCardContainer}>
+          <div className={styles.projectInfo}>
+                <p> Lokacija: {project.location} </p>
+                <p> Investitor: {project.investor} </p>
+                <p> Površina: {project.size}  m<sup>2</sup></p>
+          </div>
           <div className={styles.imageAndArrowsContainer}>
             <div className={styles.arrowIcons}>
               <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowNext : ''}`}
                   size={arrowSize} 
                   onClick={handlePreviousArrow} />
-            </div>         
-            <div className={styles.infoImageContainer}>
-              <div className={styles.projectInfo}>
-                <p> Lokacija: {project.location} </p>
-                <p> Investitor: {project.investor} </p>
-                <p> Površina: {project.size}  m<sup>2</sup></p>
-              </div>
-              <div className={styles.imageContainer}>              
-                {
-                  renderContent(images[slideIndex], styles.image, styles.video)
-                }
-              </div>
+            </div>      
+            <div className={styles.imageContainer}>              
+              {
+                renderContent(images[slideIndex], styles.image, styles.video)
+              }              
             </div>
             <div className={styles.arrowIcons}> 
               <TbArrowBadgeRightFilled className={`${slideIndex === images.length - 1 ? styles.arrowNext : ''}`} 
                   size={arrowSize} 
                   onClick={handleNextArrow} />
-            </div>
+            </div>            
           </div>
           <div className={styles.circlesContainer} >
-          {
-            images.map((slide, index) => (
-              <span key={index} 
-                  className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
-                  onClick={() => handleCircleClick(index)}> </span>                
-            ))
-          }              
-          </div>
-        </div>         
+            {
+              images.map((slide, index) => (
+                <span key={index} 
+                    className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
+                    onClick={() => handleCircleClick(index)}> </span>                
+              ))
+            } 
+          </div>             
+        </div>
       </div>
     </>
   )

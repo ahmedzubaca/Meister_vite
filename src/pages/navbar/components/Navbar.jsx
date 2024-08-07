@@ -68,8 +68,20 @@ const Navbar = () => {
     {
       windowWidth <= 900
       ? 
-      <>  
-        <div className={styles.logoMenueMediaContainer}>     
+      <> 
+        <motion.div
+          animate={isHidden ? 'hidden' : 'visble'}
+          variants={{
+            hidden: {
+              y: '-150%',
+            },
+            visible: {
+              y: '0%',
+            }
+          }}
+          transition={{ duration: 0.1 }}
+          className={styles.logoMenueMediaContainer}
+        >  
           <div className={styles.menuContainer}>            
             <AiOutlineMenu className={styles.menue} onClick={togleMenu}  />
           </div>
@@ -81,9 +93,8 @@ const Navbar = () => {
           <div className={styles.socialMediaContainer}>
             <FaFacebook className={styles.facebook} /> 
             <FaInstagram className={styles.instagram} />
-          </div>       
-        </div>
-           
+          </div>
+        </motion.div>
         <animated.ul
           style={springProps}
           className={isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
@@ -96,21 +107,22 @@ const Navbar = () => {
                           className={isMenuOpened ? styles.menuClosed : ''} />
             ))
           }
-        </animated.ul> 
+        </animated.ul>
         </>       
         :
         <motion.div
-        animate={isHidden ? 'hidden' : 'visble'}
-        variants={{
-          hidden: {
-            y: '-100%',
-          },
-          visible: {
-            y: '0%',
-          }
-        }}
-        transition={{ duration: 0.1 }}
-        className={styles.logoMenueMediaContainer}>
+          animate={isHidden ? 'hidden' : 'visble'}
+          variants={{
+            hidden: {
+              y: '-100%',
+            },
+            visible: {
+              y: '0%',
+            }
+          }}
+          transition={{ duration: 0.1 }}
+          className={styles.logoMenueMediaContainer}
+        >
           <div className={styles.logoContainer}>
           <Link to='/'>
             <img className={styles.logo} src={Logo} alt="logo" /> 
