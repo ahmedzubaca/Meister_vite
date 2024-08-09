@@ -5,6 +5,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 import styles from '../cssModules/Navbar.module.css';
 import { navItems} from '../helper/navItems';
 import CustomLink from "./CustomLink";
+import { useMenu } from "../../../helperFunctions/MenueContext";
 import { useSpring, animated } from 'react-spring';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import {Link} from 'react-router-dom';
@@ -12,7 +13,7 @@ import {Link} from 'react-router-dom';
 
 const Navbar = () => {
 
-  const [isMenuOpened, setIsMenuOpened] = useState(window.innerWidth <= 900 ? false : true)
+  const {state, dispatch} = useMenu();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
   const [hasBackground, setHasBackground] = useState(false)
@@ -20,12 +21,12 @@ const Navbar = () => {
   const lastYRef = useRef(0);  
 
   const togleMenu = () => {   
-      setIsMenuOpened(curent => !curent)
+      dispatch({type: 'TOGGLE_MENU'})
   }  
 
-  const springProps = useSpring({
-    opacity: isMenuOpened ? 1 : 0,
-    marginTop: isMenuOpened ? 20 : -50,    
+  const dropdownMenuExitEnter = useSpring({
+    opacity: state.isMenuOpened ? 1 : 0,
+    marginTop: state.isMenuOpened ? 20 : -50,    
     config: {
       tension: 170,
       friction: 26
@@ -50,9 +51,9 @@ const Navbar = () => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
       if(window.innerWidth > 900) {
-        setIsMenuOpened(true);
+        dispatch({type: 'TRUE'});
       } else {
-        setIsMenuOpened(false);
+        dispatch({type: 'FALSE'});
       }
     };
 
@@ -96,15 +97,15 @@ const Navbar = () => {
           </div>
         </motion.div>
         <animated.ul
-          style={springProps}
-          className={isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
+          style={dropdownMenuExitEnter}
+          className={state.isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
           >
           {
             navItems.map((item, index) => (
               <CustomLink key={index} 
                           navItem={item}
                           togleMenu={togleMenu}
-                          className={isMenuOpened ? styles.menuClosed : ''} />
+                          className={state.isMenuOpened ? styles.menuClosed : ''} />
             ))
           }
         </animated.ul>

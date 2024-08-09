@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 900px) {
   .overallContactContainer {   
-    margin-top: 12vh;
+    margin-top: 100px;
     min-height: 88vh;
     grid-template-columns: 30% 50%;
     grid-template-rows: auto auto;

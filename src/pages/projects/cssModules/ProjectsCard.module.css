@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 500px) {
   .overallContainer {
-    grid-template-columns: 90%;    
+    grid-template-columns: 95%;    
     justify-content: space-around;    
   } 
   .projectImg {

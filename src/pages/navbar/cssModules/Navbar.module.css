@@ -22,7 +22,7 @@
 .menuContainer{
   width: 20%;
   padding-left: 5%;
-  text-align: center;
+  text-align: center;  
 }
 .menue {    
   min-width: 25px;
@@ -53,7 +53,7 @@
   flex-direction: column; 
   list-style-type: none; 
   align-self: start;
-  gap: 25px;  
+  gap: 25px;
 }
 .menuClosed {
   display: flex;    
@@ -89,12 +89,7 @@
   }
 }
 
-@media  screen and (min-width: 900px) {  
-  /* .container{  
-    position: fixed;
-    top: 0;
-    left: 0;
-  } */
+@media  screen and (min-width: 900px) {
   .logoMenueMediaContainer { 
     width: 100%;    
   }

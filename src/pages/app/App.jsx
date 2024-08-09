@@ -1,11 +1,12 @@
-import Navbar from '../navbar/components/Navbar';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Navbar from '../navbar/components/Navbar';
 import routesData from './routesData';
+import { MenuProvider } from "../../helperFunctions/MenueContext";
 
 
 const App = () => {
   return (
-    
+    <MenuProvider>
       <Router>
         <header>
           <Navbar/>
@@ -17,7 +18,8 @@ const App = () => {
             ))
          }  
          </Routes> 
-      </Router>            
+      </Router>
+    </MenuProvider>            
   );  
 }
 export default App;

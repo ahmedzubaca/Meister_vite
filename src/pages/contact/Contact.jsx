@@ -1,10 +1,12 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Footer from '../../components/Footer';
 //import GoogleMapReact from 'google-map-react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-toastify/dist/ReactToastify.css';
+import { useSpring, animated } from 'react-spring'; 
 import styles from './contact.module.css';
+import { useMenu } from '../../helperFunctions/MenueContext';
 
 const Contact = () => {
 
@@ -15,12 +17,14 @@ const Contact = () => {
     message: ''
   }
     
-  const [userInfo, setUserInfo] = useState(initUserInfo);   
+  const {state } = useMenu();
+  const [userInfo, setUserInfo] = useState(initUserInfo);  
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
   const emailRef = useRef(null);
   const messageRef = useRef(null);
   const formRef = useRef(null);
+
   // const CompanyLocation = ({text}) => <div>{text}</div>;
   // const mapCenter = {
   //   center: {
@@ -29,6 +33,14 @@ const Contact = () => {
   //   },
   //   zoom: 11
   // };
+
+  const moveDownUp = useSpring({    
+    marginTop: state.isMenuOpened ? 250 : 100,    
+    config: {
+      tension: 170,
+      friction: 26
+    }
+  });
   
   const clearUserInfo = () => {
     if(formRef.current !== null) {
@@ -82,7 +94,7 @@ const Contact = () => {
   return( 
        
       <div className={styles.pageContainer}>      
-        <div className={styles.overallContactContainer}> 
+        <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.overallContactContainer}> 
           <div className={styles.addressContainer}>
             <div>
               <h5>Adresa:</h5>
@@ -137,7 +149,7 @@ const Contact = () => {
             </form>
           </div>
           
-        </div> 
+        </animated.div> 
         <Footer /> 
       </div>
     

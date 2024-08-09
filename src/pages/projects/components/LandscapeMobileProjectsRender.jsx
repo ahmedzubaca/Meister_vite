@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { TbArrowBigLeftFilled  } from "react-icons/tb";
 import Projects from './Projects';
 import { renderContent } from '../helperFiles/imageVideoRender';
-import styles from '../cssModules/MobileProjectsRender.module.css';
+import styles from '../cssModules/LandscapeMobileProjectsRender.module.css';
 import PropTypes from 'prop-types';
 
-const MobileProjectsRender = ({project}) => {   
+const LandscapeMobileProjectsRender = ({project}) => {   
   const touchStartX = useRef(null);
   const [ slideIndex, setSlideIndex ] = useState(0);
   const [ sliderMob, setSliderMob] = useState(false);  
@@ -62,7 +62,7 @@ const MobileProjectsRender = ({project}) => {
       window.removeEventListener('touchend', handleTouchEnd);
     };    
   }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps 
-
+  
   return(
     <>
       <div className={styles.backgroundProjects}>
@@ -74,12 +74,7 @@ const MobileProjectsRender = ({project}) => {
               onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
           </button>
         </div>
-        <div className={styles.projectCardContainer}>
-          <div className={styles.projectInfo}>
-                <p> Lokacija: {project.location} </p>
-                <p> Investitor: {project.investor} </p>
-                <p> Površina: {project.size}  m<sup>2</sup></p>
-          </div>
+        <div className={styles.projectCardContainer}>          
           <div className={styles.imgContainer}>                    
             {
               renderContent(images[slideIndex], styles.image, styles.video )
@@ -101,8 +96,8 @@ const MobileProjectsRender = ({project}) => {
     </>       
   )
 } 
-export default MobileProjectsRender;
+export default LandscapeMobileProjectsRender;
 
-MobileProjectsRender.propTypes = {
+LandscapeMobileProjectsRender.propTypes = {
   project: PropTypes.any.isRequired
 };
