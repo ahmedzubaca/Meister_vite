@@ -1,24 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled, TbArrowBigLeftFilled  } from "react-icons/tb";
 import Projects from './Projects';
-import MobileProjectsRender from './MobileProjectsRender';
 import LandscapeMobileProjectsRender from './LandscapeMobileProjectsRender';
 import useWindowResize from '../helperFiles/windowWidth';
 import { renderContent } from '../helperFiles/imageVideoRender';
 import styles from '../cssModules/ProjectsDetails.module.css';
-import PropTypes from 'prop-types';
 
 const ProjectsDetails = () => {
 
   const { state } = useLocation();
   const project = state.project;
-  const images = project.contentImages;
-  const navigate = useNavigate();
+  const images = project.contentImages;  
   const [ slideIndex, setSlideIndex ] = useState(0);
-  const windowSize = useWindowResize();
-  const [isMobile, setIsMobile] = useState(false);
+  const [ sliderMob, setSliderMob] = useState(false);
+  const touchStartX = useRef(null);
   const [isLandscape, setIsLandscape] = useState(false);
+  const navigate = useNavigate();
+  const windowSize = useWindowResize();
   let arrowSize = windowSize.windowWidth > 900 ? 90 : windowSize.windowWidth > 700 ? 70 : 55;
    
   const handleBackButton = () => {
@@ -36,33 +35,56 @@ const ProjectsDetails = () => {
   }
 
   const handleCircleClick = (number) => {
-    setSlideIndex(number); 
+    setSlideIndex(number);
+    if(number === images.length -1 || number === 0) setSliderMob(prev => !prev);
   } 
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;    
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchEndX - touchStartX.current;
+
+    if (diff > 50 ) {
+      handlePreviousArrow();
+      setSliderMob(prev => !prev)
+    }
+    if (diff < -50 ) {
+      handleNextArrow();
+      setSliderMob(prev => !prev)
+    }
+    touchStartX.current = null;    
+  };  
+
+  useEffect(() => {
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+       
+    return () => {      
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };    
+  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps 
   
-  useEffect (() => {
-    if(windowSize.windowWidth < 500) {
-       setIsMobile(true);
-       setIsLandscape(false);
-    }
-    else if((windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500) {
-      setIsLandscape(true);
-      setIsMobile(false);
-    }
-    else {
-      setIsLandscape(false);
-      setIsMobile(false)
+  useEffect (() => {    
+    if((windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500) {
+      setIsLandscape(true);      
     }    
-  }, [windowSize])
- 
+    else {
+      setIsLandscape(false);      
+    }        
+  }, [windowSize.windowHeight]); // eslint-disable-line react-hooks/exhaustive-deps  
+
   return (
     <>
-      {
-        isMobile ? 
-          <MobileProjectsRender project={project} />
-      : 
-        isLandscape ?
-          <LandscapeMobileProjectsRender project={project} />
-        : 
+      {      
+        // isLandscape ?
+        //   <LandscapeMobileProjectsRender project={project} />
+        // : 
         <>   
           <div className={styles.backgroundProjects}>
             <Projects />
@@ -101,7 +123,7 @@ const ProjectsDetails = () => {
                   images.map((slide, index) => (
                     <span key={index} 
                         className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
-                        onClick={() => handleCircleClick(index)}> </span>                
+                        onClick={() => handleCircleClick(index)}> </span>
                   ))
                 } 
               </div>             
@@ -113,8 +135,3 @@ const ProjectsDetails = () => {
   )
 }
 export default ProjectsDetails;
-
-ProjectsDetails.propTypes = {
-  selectedProject: PropTypes.any.isRequired,
-  handleBackButton: PropTypes.any.isRequired
-};

@@ -93,7 +93,8 @@
 
  @media screen and (max-width: 900px) {  
  .contentContainer {
-    margin-bottom: 5vh;      
+  margin-top: 5vh;
+  margin-bottom: 5vh;      
   }
   .servicesContainer {    
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));      

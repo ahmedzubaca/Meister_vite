@@ -1,23 +1,23 @@
 .container{  
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 10vh;
   flex-direction: row;
   align-items: center;  
-  z-index: 1000;
-  padding-top: 20px;
+  z-index: 1000;  
   box-sizing: border-box;  
 }
 .containerBackground {
   background-color: rgb(169, 136, 136);
-  padding-top: 20px;
+  top: 0;  
   opacity: 0.8;  
 }  
 .logoMenueMediaContainer { 
   display: flex;  
-  align-items: center;  
+  align-items: center;
+  padding-top: 25px;  
 }
 .menuContainer{
   width: 20%;
@@ -64,15 +64,10 @@
   pointer-events: none;
 }
 
-@media screen and (min-width: 500px) {
-  .container{  
-    position: fixed;
-    top: 10px;
-    left: 0;    
-  }
-  .containerBackground {
-    top: 0;
-  }   
+@media screen and (min-width: 499px) { 
+  .logoMenueMediaContainer { 
+    padding-top: 10px;  
+   }   
   .linksContainerOnMenueClick {
     width: 20%;
     text-align: center;  
@@ -89,10 +84,13 @@
   }
 }
 
-@media  screen and (min-width: 900px) {
-  .logoMenueMediaContainer { 
-    width: 100%;    
-  }
+@media screen and (min-width: 500px) and (max-width: 949px) and (max-height: 499px) {
+  .container{ 
+    height: 15vh;
+  }  
+}
+
+@media  screen and (min-width: 900px) { 
   .logoContainer{      
     text-align: center;    
     width: 50%;     

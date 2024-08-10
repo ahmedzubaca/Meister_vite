@@ -1,8 +1,7 @@
   .backgroundProjects {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
-    
+    overflow: hidden;    
   }
   .pageContainer {
     position: absolute;
@@ -11,7 +10,7 @@
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: 80%;    
+    grid-template-columns: 90%;    
     align-content: center;    
     justify-content: center;
     background-color: rgba(20, 20, 20, 0.8); 
@@ -21,9 +20,9 @@
     display: flex;
     width: 100%;    
     justify-content: center;
-    align-content: center;    
-    position: absolute;
-    top: 10vh;
+    align-content: center;
+    margin-top: 5vh;
+    box-sizing: border-box;
   }
   .backButton {
     width: 150px;
@@ -34,13 +33,12 @@
     height: 30px;
     cursor: pointer;
   }
-  .projectCardContainer {
-    margin-top: 5vh;
-    display: grid;
+  .projectCardContainer {    
     grid-template-columns: 100%;
-    grid-template-rows: auto auto 5%;
-    max-width: 1000px;
-    justify-self: center;
+    grid-template-rows: auto auto 5%;    
+    justify-self: center; 
+    margin-bottom: 2vh;
+    box-sizing: border-box;   
   }
   .projectInfo > p {
     font-size: 0.8rem;
@@ -49,22 +47,23 @@
   }  
   .imageAndArrowsContainer {           
     display: grid;
-    grid-template-columns: 10% 80% 10%;         
+    grid-template-columns: 10% 80% 10%;             
   }  
   .arrowIcons {        
     display: grid;
     color: rgb(229, 203, 203);
-    place-content: center center;    
+    place-content: center center;     
   }
   .arrowPrevious, .arrowNext  {
     display: none;    
   }    
   .imageContainer {
+    display: grid;
     place-content: center center;
   }
   .image {
     width: 100%;
-    max-width: 800px;
+    max-width: 830px;
     height: auto;         
   }
   .video {
@@ -73,7 +72,7 @@
   }  
   .circlesContainer{
     display: flex;
-    justify-self: center;    
+    justify-content: center;
   }
   .circle {
     width: 10px;        
@@ -88,37 +87,62 @@
   }
   .activeCircle, .circle:hover {
     background-color: lightgray;
-  } 
-  
-  @media screen and (max-width: 1100px) {
-    .pageContainer {           
-      grid-template-columns: 90%;
-    }
-    .projectCardContainer {
-      margin-top: 3vh;
-    }
   }
 
   @media screen and (max-width: 900px) {
     .pageContainer {           
       grid-template-columns: 95%;
+    }    
+  }
+  
+  @media screen and (max-width: 499px) {
+    .buttonContainer {
+      margin-top: 0;
     }
-    .projectCardContainer {
-      margin-top: 1vh;
+    .projectInfo > p {      
+      padding-left: 0;
+    } 
+    .imageAndArrowsContainer {
+      grid-template-columns: 100%;         
+    }  
+    .arrowIcons {        
+      display: none;        
     }
+    .image {     
+      max-width: none;               
+    }
+    .circle {
+      width: 15px;        
+      height: 15px;       
+    }
+    .circleMargin:not(:last-child) {
+      margin-right: 12px;
+    }    
   }
 
-  @media screen and (max-width: 800px) {
-    .buttonContainer {     
-      top: 15vh;
+  @media screen and (min-width: 500px) and (max-width: 949px) and (max-height: 499px) {
+    .buttonContainer {
+      margin-top: 0vh;
     }
-  }
- 
-  @media screen and (max-width: 500px) {
-    
-    .imageAndArrowsContainer {           
-      display: grid;
-      grid-template-columns: 7% 86% 7%;
-      grid-template-rows: 100%;
+    .projectCardContainer {
+      margin-top: 4vh;
+      grid-template-rows: auto 5%; 
     }
+    .projectInfo {
+      display: none;
+    } 
+    .imageAndArrowsContainer {
+      column-gap: 2vw;         
+    }
+    .image {      
+      height: 75vh; 
+      width: auto;
+      max-width: none;                   
+    } 
+    .circle {      
+      margin-top: 2vh;       
+    }
+    .circleMargin:not(:last-child) {
+      margin-right: 12px;
+    } 
   }

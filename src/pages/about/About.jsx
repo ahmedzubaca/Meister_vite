@@ -10,7 +10,7 @@ const About = () => {
   const { state } = useMenu();
   
   const moveDownUp = useSpring({    
-    marginTop: state.isMenuOpened ? 220 : 100,    
+    marginTop: state.isMenuOpened ? 220 : 80,    
     config: {
       tension: 170,
       friction: 26
