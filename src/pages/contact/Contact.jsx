@@ -91,68 +91,65 @@ const Contact = () => {
     }
   }
 
-  return( 
-       
-      <div className={styles.pageContainer}>      
-        <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.overallContactContainer}> 
-          <div className={styles.addressContainer}>
-            <div>
-              <h5>Adresa:</h5>
-              <p> Uglješići 5j, 71320 Vogošća </p>
-              <p> Sarajevo </p> 
-              <p> Bosna i Hercegovina </p>              
-            </div>
-            <div> 
-              <h5>Kontakt:</h5>  
-              <p>Telefon: +387 (0)33 878 210</p>
-              <p> Fax: +387 (0)33 878 153</p>
-              <p>E-mail: info@meister.ba</p>
-            </div>          
-          </div> 
-          <div className={styles.mapContainer}> mapa </div> 
-          <div className={styles.formContainer}>            
-            <form 
-                  ref={formRef} 
-                  method='POST'
-                  onSubmit={handleSubmit}
-            >          
-              <div className={styles.userDataContainer}>
-                <div className={styles.contactNote}> Kontaktirajte nas: </div>                      
-                <input type='text' id='fname' 
-                        placeholder='Ime (obavezno)'                   
-                        ref={firstNameRef}                                 
-                />            
-                <input type='text' id='lname' 
-                      name='lastName' placeholder='Prezime (obavezno)'                  
-                      ref={lastNameRef} 
-                />
-                <input type='email' id='email' 
-                      name='email' placeholder='E-mail (obavezno)'                   
-                      ref={emailRef}
-                />            
-              </div> 
-              <div className={styles.messageButtonContainer}>         
-                <textarea className={styles.messageContainer}
-                          name='message' 
-                          id='message'
-                          placeholder='Poruka'                    
-                          ref={messageRef}
-                >
-                </textarea>            
-                <button className={styles.submitButton} 
-                        type='submit'
-                        onClick={handleUserInfo}
-                >
-                          Pošalji
-                </button>            
-              </div>          
-            </form>
+  return(        
+    <div className={styles.pageContainer}>      
+      <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.overallContactContainer}> 
+        <div className={styles.addressContainer}>
+          <div>
+            <h5>Adresa:</h5>
+            <p> Uglješići 5j, 71320 Vogošća </p>
+            <p> Sarajevo </p> 
+            <p> Bosna i Hercegovina </p>              
           </div>
-          
-        </animated.div> 
-        <Footer /> 
-      </div>
-    
+          <div> 
+            <h5>Kontakt:</h5>  
+            <p>Telefon: +387 (0)33 878 210</p>
+            <p> Fax: +387 (0)33 878 153</p>
+            <p>E-mail: info@meister.ba</p>
+          </div>          
+        </div> 
+        <div className={styles.mapContainer}> mapa </div> 
+        <div className={styles.formContainer}>            
+          <form 
+                ref={formRef} 
+                method='POST'
+                onSubmit={handleSubmit}
+          >          
+            <div className={styles.userDataContainer}>
+              <div className={styles.contactNote}> Kontaktirajte nas: </div>                      
+              <input type='text' id='fname' 
+                      placeholder='Ime (obavezno)'                   
+                      ref={firstNameRef}                                 
+              />            
+              <input type='text' id='lname' 
+                    name='lastName' placeholder='Prezime (obavezno)'                  
+                    ref={lastNameRef} 
+              />
+              <input type='email' id='email' 
+                    name='email' placeholder='E-mail (obavezno)'                   
+                    ref={emailRef}
+              />            
+            </div> 
+            <div className={styles.messageButtonContainer}>         
+              <textarea className={styles.messageContainer}
+                        name='message' 
+                        id='message'
+                        placeholder='Poruka'                    
+                        ref={messageRef}
+              >
+              </textarea>            
+              <button className={styles.submitButton} 
+                      type='submit'
+                      onClick={handleUserInfo}
+              >
+                        Pošalji
+              </button>            
+            </div>          
+          </form>
+        </div>          
+      </animated.div> 
+      <Footer /> 
+    </div>    
   )
 }
 export default Contact;
