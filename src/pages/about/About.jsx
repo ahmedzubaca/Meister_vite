@@ -3,6 +3,7 @@ import Footer from '../../components/Footer';
 import { useMenu } from "../../helperFunctions/MenueContext";
 import { useSpring, animated } from 'react-spring';
 import styles from '../home/css_modules/Services.module.css'
+import abutStyles from './about.module.css';
 import {servicesCardsData} from '../home/helper/servicesCardData';
 
 const About = () => {
@@ -20,6 +21,7 @@ const About = () => {
   return (
     <>
       <div className={styles.overallContainer} >
+        <div className={abutStyles.bufferDiv}> </div>
         <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.contentContainer}>
           <div className={styles.titleDiv}> VAŠA FIRMA ZA SVE</div>
           <div className={styles.servicesContainer}>         

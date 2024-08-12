@@ -2,15 +2,14 @@
   display: grid;
   align-content: center;
   width: 100vw;
-  min-height: 100vh;
-  padding-top: 10vh;
+  min-height: 100vh;padding-top: 5vh;  
   font-family: Arial, sans-serif;  
   background-image: url('../images/scroll_two.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center;  
 }
 .textContainer{
-  padding-left: 3vw;
+  padding-left: 3vw;  
 }
 .number{
   font-size: 3.5rem;
@@ -35,6 +34,12 @@
 .logo {  
   max-width: 90px;
   max-height: 75px;   
+}
+
+@media screen and (min-width: 850px) { 
+  .overallContainer {
+    padding-top: 0;
+  }
 }
 
 @media screen and (min-width: 1150px) {

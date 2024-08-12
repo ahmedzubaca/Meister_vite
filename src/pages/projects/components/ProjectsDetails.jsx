@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled, TbArrowBigLeftFilled  } from "react-icons/tb";
 import Projects from './Projects';
-import LandscapeMobileProjectsRender from './LandscapeMobileProjectsRender';
 import useWindowResize from '../helperFiles/windowWidth';
 import { renderContent } from '../helperFiles/imageVideoRender';
 import styles from '../cssModules/ProjectsDetails.module.css';
@@ -15,7 +14,6 @@ const ProjectsDetails = () => {
   const [ slideIndex, setSlideIndex ] = useState(0);
   const [ sliderMob, setSliderMob] = useState(false);
   const touchStartX = useRef(null);
-  const [isLandscape, setIsLandscape] = useState(false);
   const navigate = useNavigate();
   const windowSize = useWindowResize();
   let arrowSize = windowSize.windowWidth > 900 ? 90 : windowSize.windowWidth > 700 ? 70 : 55;
@@ -68,69 +66,53 @@ const ProjectsDetails = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };    
-  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps 
-  
-  useEffect (() => {    
-    if((windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500) {
-      setIsLandscape(true);      
-    }    
-    else {
-      setIsLandscape(false);      
-    }        
-  }, [windowSize.windowHeight]); // eslint-disable-line react-hooks/exhaustive-deps  
+  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps   
 
   return (
-    <>
-      {      
-        // isLandscape ?
-        //   <LandscapeMobileProjectsRender project={project} />
-        // : 
-        <>   
-          <div className={styles.backgroundProjects}>
-            <Projects />
-          </div>             
-          <div className={styles.pageContainer}>
-            <div className={styles.buttonContainer}>
-              <button className={styles.backButton}
-                  onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
-              </button>
-            </div>
-            <div className={styles.projectCardContainer}>
-              <div className={styles.projectInfo}>
-                    <p> Lokacija: {project.location} </p>
-                    <p> Investitor: {project.investor} </p>
-                    <p> Površina: {project.size}  m<sup>2</sup></p>
-              </div>
-              <div className={styles.imageAndArrowsContainer}>
-                <div className={styles.arrowIcons}>
-                  <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowNext : ''}`}
-                      size={arrowSize} 
-                      onClick={handlePreviousArrow} />
-                </div>      
-                <div className={styles.imageContainer}>              
-                  {
-                    renderContent(images[slideIndex], styles.image, styles.video)
-                  }              
-                </div>
-                <div className={styles.arrowIcons}> 
-                  <TbArrowBadgeRightFilled className={`${slideIndex === images.length - 1 ? styles.arrowNext : ''}`} 
-                      size={arrowSize} 
-                      onClick={handleNextArrow} />
-                </div>            
-              </div>
-              <div className={styles.circlesContainer} >
-                {
-                  images.map((slide, index) => (
-                    <span key={index} 
-                        className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
-                        onClick={() => handleCircleClick(index)}> </span>
-                  ))
-                } 
-              </div>             
-            </div>
+    <> 
+      <div className={styles.backgroundProjects}>
+        <Projects />
+      </div>             
+      <div className={styles.pageContainer}>
+        <div className={styles.buttonContainer}>
+          <button className={styles.backButton}
+              onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
+          </button>
+        </div>
+        <div className={styles.projectCardContainer}>
+          <div className={styles.projectInfo}>
+                <p> Lokacija: {project.location} </p>
+                <p> Investitor: {project.investor} </p>
+                <p> Površina: {project.size}  m<sup>2</sup></p>
           </div>
-        </>      
-      }
+          <div className={styles.imageAndArrowsContainer}>
+            <div className={styles.arrowIcons}>
+              <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowNext : ''}`}
+                  size={arrowSize} 
+                  onClick={handlePreviousArrow} />
+            </div>      
+            <div className={styles.imageContainer}>              
+              {
+                renderContent(images[slideIndex], styles.image, styles.video)
+              }              
+            </div>
+            <div className={styles.arrowIcons}> 
+              <TbArrowBadgeRightFilled className={`${slideIndex === images.length - 1 ? styles.arrowNext : ''}`} 
+                  size={arrowSize} 
+                  onClick={handleNextArrow} />
+            </div>            
+          </div>
+          <div className={styles.circlesContainer} >
+            {
+              images.map((slide, index) => (
+                <span key={index} 
+                    className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
+                    onClick={() => handleCircleClick(index)}> </span>
+              ))
+            } 
+          </div>             
+        </div>
+      </div>
     </>
   )
 }
