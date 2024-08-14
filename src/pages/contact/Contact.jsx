@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Footer from '../../components/Footer';
 //import GoogleMapReact from 'google-map-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useSpring, animated } from 'react-spring'; 
+import { useSpring, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 import styles from './contact.module.css';
 import { useMenu } from '../../helperFunctions/MenueContext';
 
@@ -92,7 +93,13 @@ const Contact = () => {
   }
 
   return(        
-    <div className={styles.pageContainer}>      
+    <motion.div
+      initial={{opacity: 0.3}} 
+      animate={{opacity: 1}}
+      exit={{opacity: 0.3}}
+      transition={{duration: 0.3}}
+      className={styles.pageContainer}
+    >      
       <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.overallContactContainer}> 
         <div className={styles.addressContainer}>
           <div>
@@ -149,7 +156,7 @@ const Contact = () => {
         </div>          
       </animated.div> 
       <Footer /> 
-    </div>    
+    </motion.div>    
   )
 }
 export default Contact;

@@ -6,8 +6,7 @@ export const navItems = [
   {
     route: '/about',
     name: 'O NAMA'
-  },  
-  
+  },
   {
     route: '/contact',
     name: 'KONTAKT'

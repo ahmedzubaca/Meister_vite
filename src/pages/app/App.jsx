@@ -1,8 +1,7 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import Navbar from '../navbar/components/Navbar';
-import routesData from './routesData';
+import RoutesData from "./RoutesData";
 import { MenuProvider } from "../../helperFunctions/MenueContext";
-
 
 const App = () => {
   return (
@@ -11,13 +10,7 @@ const App = () => {
         <header>
           <Navbar/>
         </header>
-         <Routes> 
-           {
-             routesData.map((route, index) => (
-               <Route path = {route.path} element = {<route.component/>} key={index} />
-            ))
-         }  
-         </Routes> 
+        <RoutesData /> 
       </Router>
     </MenuProvider>            
   );  

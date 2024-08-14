@@ -22,7 +22,6 @@
   font-weight: 800;
   color: white;  
 }
-
 .logosContainer {
   padding: 5vh 3vw;
   display: grid;
@@ -61,5 +60,3 @@
     max-height: 100px;   
   }
 }
-  
-

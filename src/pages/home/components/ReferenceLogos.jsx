@@ -20,8 +20,7 @@ function ReferenceLogos() {
           ))
         }
       </div> 
-    </div>         
-      
+    </div>
   )
 }
 export default ReferenceLogos;

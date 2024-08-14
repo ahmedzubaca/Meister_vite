@@ -5,10 +5,11 @@ import { useSpring, animated } from 'react-spring';
 import styles from '../home/css_modules/Services.module.css'
 import abutStyles from './about.module.css';
 import {servicesCardsData} from '../home/helper/servicesCardData';
+import { motion } from 'framer-motion';
 
 const About = () => {
 
-  const { state } = useMenu();
+  const { state } = useMenu();  
   
   const moveDownUp = useSpring({    
     marginTop: state.isMenuOpened ? 220 : 80,    
@@ -19,7 +20,12 @@ const About = () => {
   });
   
   return (
-    <>
+    <motion.div
+      initial={{opacity: 0.3}} 
+      animate={{opacity: 1}}
+      exit={{opacity: 0.3}}
+      transition={{duration: 0.3}} 
+    >
       <div className={styles.overallContainer} >
         <div className={abutStyles.bufferDiv}> </div>
         <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={styles.contentContainer}>
@@ -45,7 +51,7 @@ const About = () => {
       </div>
       <ReferenceLogos />      
       <Footer />       
-    </>
+    </motion.div>
   )
 } 
 export default About;

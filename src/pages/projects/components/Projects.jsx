@@ -4,6 +4,7 @@ import useWindowResize from '../helperFiles/windowWidth';
 import Footer from '../../../components/Footer';
 import {projectsData} from '../helperFiles/projectsData';
 import { useSpring, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 import { useMenu } from "../../../helperFunctions/MenueContext";
 import styles from '../cssModules/Projects.module.css';
 
@@ -29,7 +30,13 @@ const Projects = () => {
   }
 
   return (
-    <div className={`${styles.pageContainer} ${ isLandscape ? styles.pageContainerLandscape : null}`}>
+    <motion.div
+      initial={{opacity: 0.3}} 
+      animate={{opacity: 1}}
+      exit={{opacity: 0.3}}
+      transition={{duration: 0.3}}
+      className={`${styles.pageContainer} ${ isLandscape ? styles.pageContainerLandscape : null}`}
+    >
       <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={`${styles.title} ${isLandscape ? styles.titleLandscape : '' }`}> PROJEKTI </animated.div>      
       <div className= {`${styles.projectsCardsContainer} ${ isLandscape ? styles.projectsCardsContainerLandscape : ''}`}>       
         {          
@@ -42,7 +49,7 @@ const Projects = () => {
         }    
       </div>  
       <Footer />       
-  </div>
+  </motion.div>
   )
 }
 export default Projects;

@@ -5,6 +5,7 @@ import Projects from './Projects';
 import useWindowResize from '../helperFiles/windowWidth';
 import { renderContent } from '../helperFiles/imageVideoRender';
 import styles from '../cssModules/ProjectsDetails.module.css';
+import { motion } from 'framer-motion';
 
 const ProjectsDetails = () => {
 
@@ -73,7 +74,12 @@ const ProjectsDetails = () => {
       <div className={styles.backgroundProjects}>
         <Projects />
       </div>             
-      <div className={styles.pageContainer}>
+      <motion.div 
+        initial={{opacity: 0.3}} 
+        animate={{opacity: 1}}
+        exit={{opacity: 0.3}}
+        transition={{duration: 0.3}}
+        className={styles.pageContainer}>
         <div className={styles.buttonContainer}>
           <button className={styles.backButton}
               onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
@@ -112,7 +118,7 @@ const ProjectsDetails = () => {
             } 
           </div>             
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

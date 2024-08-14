@@ -6,8 +6,7 @@ import styles from '../cssModules/Navbar.module.css';
 import { navItems} from '../helper/navItems';
 import CustomLink from "./CustomLink";
 import { useMenu } from "../../../helperFunctions/MenueContext";
-import { useSpring, animated } from 'react-spring';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import {Link} from 'react-router-dom';
 
 
@@ -22,17 +21,8 @@ const Navbar = () => {
 
   const togleMenu = () => {   
       dispatch({type: 'TOGGLE_MENU'})
-  }  
+  }
 
-  const dropdownMenuExitEnter = useSpring({
-    opacity: state.isMenuOpened ? 1 : 0,
-    marginTop: state.isMenuOpened ? 20 : -50,    
-    config: {
-      tension: 170,
-      friction: 26
-    }
-  });
-  
   useMotionValueEvent(scrollY, "change", (y) => {
     const difference = y - lastYRef.current;
     if (Math.abs(difference) > 50) {
@@ -46,6 +36,29 @@ const Navbar = () => {
       lastYRef.current = y;
     }      
   });
+
+  const y = useMotionValue(-50);
+  const opacity = useTransform(y, [-80, -30, 0, 10], [0, 0, 0.5, 1]);
+  const menuVars = {
+    initial: {
+      y: -40,
+      opacity: 0
+    },
+    animate: {
+      y: 10,
+      opacity: 1,
+      transition: {
+        duration: 0.5,        
+      },
+    },
+    exit: {
+      y: -80,
+      opacity: 0,
+      transition: {        
+        duration: 0.6,        
+      },
+    },
+  };
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -62,7 +75,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   
   return (
     <nav className={`${styles.container} ${hasBackground ? styles.containerBackground : ''}`} > 
@@ -96,19 +109,29 @@ const Navbar = () => {
             <FaInstagram className={styles.instagram} />
           </div>
         </motion.div>
-        <animated.ul
-          style={dropdownMenuExitEnter}
-          className={state.isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
-          >
+        <AnimatePresence initial={false}>
           {
-            navItems.map((item, index) => (
-              <CustomLink key={index} 
-                          navItem={item}
-                          togleMenu={togleMenu}
-                          className={state.isMenuOpened ? styles.menuClosed : ''} />
-            ))
+            state.isMenuOpened && (
+              <motion.ul
+                style={{ y, opacity }}
+                variants={menuVars}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className={state.isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
+                >
+                {
+                  navItems.map((item, index) => (
+                    <CustomLink key={index} 
+                                navItem={item}
+                                togleMenu={togleMenu}
+                                className={state.isMenuOpened ? styles.menuClosed : ''} />
+                  ))
+                }
+              </motion.ul>
+            )
           }
-        </animated.ul>
+        </AnimatePresence>       
         </>       
         :
         <motion.div

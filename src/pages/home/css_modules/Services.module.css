@@ -82,6 +82,7 @@
  align-self: first baseline;
  font-size: 0.9rem;   
 }
+
 @media screen and (max-width: 1100px) {
   .cardContainer {   
     grid-template-rows: 30% 15% 55%;
@@ -91,7 +92,7 @@
   }
 }
 
- @media screen and (max-width: 900px) {  
+@media screen and (max-width: 900px) {  
  .contentContainer {
   margin-top: 5vh;
   margin-bottom: 5vh;      
