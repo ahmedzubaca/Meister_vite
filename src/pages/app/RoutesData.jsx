@@ -10,7 +10,7 @@ function RoutesData() {
   const location = useLocation();
 
   return ( 
-    <AnimatePresence mode='wait' initial='false'>
+    <AnimatePresence >
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -18,7 +18,7 @@ function RoutesData() {
         <Route path='/projects/:projectTitle' element={<ProjectsDetails />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      </AnimatePresence>
+    </AnimatePresence>
     
   );
 }

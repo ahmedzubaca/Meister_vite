@@ -31,10 +31,10 @@ const Projects = () => {
 
   return (
     <motion.div
-      initial={{opacity: 0.3}} 
+      initial={{opacity: 0}} 
       animate={{opacity: 1}}
-      exit={{opacity: 0.3}}
-      transition={{duration: 0.3}}
+      exit={{opacity: 0.5, transition: {duration: 0.1}}}
+      transition={{duration: 0.5}}
       className={`${styles.pageContainer} ${ isLandscape ? styles.pageContainerLandscape : null}`}
     >
       <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={`${styles.title} ${isLandscape ? styles.titleLandscape : '' }`}> PROJEKTI </animated.div>      
