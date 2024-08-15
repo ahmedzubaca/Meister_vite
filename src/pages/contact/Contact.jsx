@@ -18,7 +18,7 @@ const Contact = () => {
     message: ''
   }
     
-  const {state } = useMenu();
+  const { state } = useMenu();
   const [userInfo, setUserInfo] = useState(initUserInfo);  
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
@@ -78,12 +78,12 @@ const Contact = () => {
       }
 
       emailjs.send(import.meta.env.VITE_SERVICEID, import.meta.env.VITE_TEMPLATEID, templateParams, import.meta.env.VITE_PUBLICKEY)
-      .then((response) => {         
+      .then((response) => {       
         if( response.status === 200 ) {                   
           notify('Poruka uspješno poslana');
           clearUserInfo();
         }
-      }, () => {
+      }, () => {        
         notify('Greška servera, molimo za nekoliko trenutaka pokušajte ponovo!');
       });
       
@@ -118,8 +118,7 @@ const Contact = () => {
         </div> 
         <div className={styles.mapContainer}> mapa </div> 
         <div className={styles.formContainer}>            
-          <form 
-                ref={formRef} 
+          <form ref={formRef} 
                 method='POST'
                 onSubmit={handleSubmit}
           >          
@@ -154,7 +153,8 @@ const Contact = () => {
               </button>            
             </div>          
           </form>
-        </div>          
+        </div>
+        <ToastContainer/>          
       </animated.div> 
       <Footer /> 
     </motion.div>    
