@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Footer from '../../components/Footer';
-//import GoogleMapReact from 'google-map-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSpring, animated } from 'react-spring';
@@ -25,15 +24,6 @@ const Contact = () => {
   const emailRef = useRef(null);
   const messageRef = useRef(null);
   const formRef = useRef(null);
-
-  // const CompanyLocation = ({text}) => <div>{text}</div>;
-  // const mapCenter = {
-  //   center: {
-  //     lat: 43.90178488252929,
-  //     lng: 18.336620744520634
-  //   },
-  //   zoom: 11
-  // };
 
   const moveDownUp = useSpring({    
     marginTop: state.isMenuOpened ? 250 : 100,    
@@ -116,7 +106,17 @@ const Contact = () => {
             <p>E-mail: info@meister.ba</p>
           </div>          
         </div> 
-        <div className={styles.mapContainer}> mapa </div> 
+        <div className={styles.mapContainer}>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10541.558246144192!2d18.33570866203796!3d43.89787913746111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758cd0cc361bb0d%3A0x850175cb9dd85b29!2sMeister%20d.o.o.%20Sarajevo!5e1!3m2!1sbs!2sba!4v1723736598980!5m2!1sbs!2sba"
+            width="100%" 
+            height="320vh"
+            allowfullscreen=""            
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className={styles.mapContainer}
+           >            
+           </iframe>
+        </div> 
         <div className={styles.formContainer}>            
           <form ref={formRef} 
                 method='POST'
