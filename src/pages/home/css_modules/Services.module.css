@@ -54,7 +54,7 @@
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 2vw;
   padding-left: 2vw;
-  padding-right: 3vw;    
+  padding-right: 3vw;  
 }
 .cardContainer {
   display: grid;
@@ -131,7 +131,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 499px) {
   .contentContainer {
     margin-top: 5vh;
     margin-bottom: 3vh;      
@@ -154,5 +154,11 @@
   }
   .serviceDescription {    
    font-size: 0.8rem;   
+  }
+}
+
+@media screen and (max-width: 379px) {
+  .servicesContainer {    
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));      
   }
 }

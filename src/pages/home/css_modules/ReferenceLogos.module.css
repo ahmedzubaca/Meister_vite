@@ -1,21 +1,26 @@
 .overallContainer {
   display: grid;
-  align-content: center;
+  align-content: start;
   width: 100vw;
-  min-height: 100vh;padding-top: 5vh;  
+  min-height: 100vh;
+  padding-top: 5vh;  
   font-family: Arial, sans-serif;  
   background-image: url('../images/scroll_two.jpg');
   background-size: cover;
-  background-position: center;  
+  background-position: center;
+  box-sizing: border-box;  
 }
 .textContainer{
-  padding-left: 3vw;  
+  padding-left: 3vw;
+  padding-right: 3vw;
+  box-sizing: border-box;  
 }
 .number{
   font-size: 3.5rem;
   font-weight: 900;
   color: maroon;
-  max-height: 3.5rem;    
+  max-height: 3.5rem;
+  margin-bottom: 1rem;    
 }
 .text{
   font-size: 2.5rem;
@@ -37,7 +42,7 @@
 
 @media screen and (min-width: 850px) { 
   .overallContainer {
-    padding-top: 0;
+    padding-top: 7vh;
   }
 }
 
