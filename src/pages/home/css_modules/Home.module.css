@@ -24,7 +24,7 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
-@media screen and (min-width: 500px) {  
+@media screen and (min-width: 730px) {  
   .textDiv {
     width: 50%;
     height: 100%;    
