@@ -5,13 +5,25 @@ import PropTypes from 'prop-types';
 const ProjectCard = ({project, handleProjectClick}) => { 
 
   const [isHover, setIsHover] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  console.log(isLoaded);
 
   return( 
     <div  className={styles.overallContainer}> 
       <div className={styles.cardContainer}>        
         <div className={styles.imgContainer}>
+        <img src={project.coverImageLight} alt='slika'              
+              className={`${styles.projectImg} ${isHover ? styles.projectImgHovered : ''}`}
+              style={{display: isLoaded ? 'none' : 'grid'}}
+              onLoad={() => setIsLoaded(true)}
+              onClick={() => handleProjectClick(project)}
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
+          /> 
           <img src={project.coverImage} alt='slika'              
               className={`${styles.projectImg} ${isHover ? styles.projectImgHovered : ''}`}
+              style={{display: isLoaded ? 'grid' : 'none'}}
+              onLoad={() => setIsLoaded(true)}
               onClick={() => handleProjectClick(project)}
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}
