@@ -1,0 +1,37 @@
+import { useState } from 'react';
+import PropTypes from 'prop-types'
+
+export const ImageLoader = ({ lightSrc, heavySrc, imgStyle }) => {
+  const [loaded, setLoaded] = useState(false);
+  console.log(loaded);
+
+  return (
+    <div >
+      <img
+        src={lightSrc}
+        alt='slika'
+        className={imgStyle}
+        style={{
+          display: loaded ? 'none' : 'block',
+          filter: 'blur(10px)', // Optional: Add a blur effect to the light image
+          transition: 'opacity 0.5s ease-in-out',
+        }}
+      />
+      <img
+        src={heavySrc}
+        alt='slika'
+        className={imgStyle}
+        style={{
+          display: loaded ? 'block' : 'none',
+          transition: 'opacity 0.5s ease-in-out',
+        }}
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  );
+};
+ImageLoader.propTypes = {
+  lightSrc: PropTypes.any.isRequired,
+  heavySrc: PropTypes.any.isRequired,
+  imgStyle: PropTypes.any.isRequired
+};

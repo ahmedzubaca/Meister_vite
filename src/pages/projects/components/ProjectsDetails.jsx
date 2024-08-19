@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled, TbArrowBigLeftFilled  } from "react-icons/tb";
+import { TbArrowBadgeLeftFilled, TbArrowBadgeRightFilled } from "react-icons/tb";
 import Projects from './Projects';
 import useWindowResize from '../helperFiles/windowWidth';
-import { renderContent } from '../helperFiles/imageVideoRender';
+import { imageVideoRender } from '../helperFiles/imageVideoRender';
 import styles from '../cssModules/ProjectsDetails.module.css';
 import { motion } from 'framer-motion';
 
@@ -11,7 +11,8 @@ const ProjectsDetails = () => {
 
   const { state } = useLocation();
   const project = state.project;
-  const images = project.contentImages;  
+  const imagesNormal = project.contentImages;
+  const imagesLight = project.contentImagesLight  
   const [ slideIndex, setSlideIndex ] = useState(0);
   const [ sliderMob, setSliderMob] = useState(false);
   const touchStartX = useRef(null);
@@ -29,13 +30,13 @@ const ProjectsDetails = () => {
   }
 
   const handleNextArrow = () => {
-    if(slideIndex < images.length -1)
+    if(slideIndex < imagesLight.length -1)
     setSlideIndex(prev => prev + 1)
   }
 
   const handleCircleClick = (number) => {
     setSlideIndex(number);
-    if(number === images.length -1 || number === 0) setSliderMob(prev => !prev);
+    if(number === imagesLight.length -1 || number === 0) setSliderMob(prev => !prev);
   } 
 
   const handleTouchStart = (e) => {
@@ -67,7 +68,7 @@ const ProjectsDetails = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };    
-  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps   
+  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <> 
@@ -82,7 +83,7 @@ const ProjectsDetails = () => {
         className={styles.pageContainer}>
         <div className={styles.buttonContainer}>
           <button className={styles.backButton}
-              onClick={handleBackButton}> <TbArrowBigLeftFilled /> PROJEKTI
+              onClick={handleBackButton}> NAZAD
           </button>
         </div>
         <div className={styles.projectCardContainer}>
@@ -92,25 +93,25 @@ const ProjectsDetails = () => {
                 <p> Površina: {project.size}  m<sup>2</sup></p>
           </div>
           <div className={styles.imageAndArrowsContainer}>
-            <div className={styles.arrowIcons}>
-              <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowNext : ''}`}
+            <div className={styles.arrowContainer}>
+              <TbArrowBadgeLeftFilled className={`${slideIndex === 0 ? styles.arrowHidden : styles.arrow}`}
                   size={arrowSize} 
                   onClick={handlePreviousArrow} />
             </div>      
-            <div className={styles.imageContainer}>              
+            <div className={styles.imageContainer}> 
               {
-                renderContent(images[slideIndex], styles.image, styles.video)
-              }              
+                imageVideoRender(imagesLight[slideIndex], imagesNormal[slideIndex], styles.image, styles.video)                  
+              }      
             </div>
-            <div className={styles.arrowIcons}> 
-              <TbArrowBadgeRightFilled className={`${slideIndex === images.length - 1 ? styles.arrowNext : ''}`} 
+            <div className={styles.arrowContainer}> 
+              <TbArrowBadgeRightFilled className={`${slideIndex === imagesLight.length - 1 ? styles.arrowHidden : styles.arrow}`} 
                   size={arrowSize} 
                   onClick={handleNextArrow} />
             </div>            
           </div>
           <div className={styles.circlesContainer} >
             {
-              images.map((slide, index) => (
+              imagesLight.map((slide, index) => (
                 <span key={index} 
                     className={`${styles.circle} ${styles.circleMargin} ${slideIndex === index ? styles.activeCircle : ''}`} 
                     onClick={() => handleCircleClick(index)}> </span>
