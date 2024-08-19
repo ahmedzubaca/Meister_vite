@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 export const ImageLoader = ({ lightSrc, heavySrc, imgStyle }) => {
   const [loaded, setLoaded] = useState(false);
-  console.log(loaded);
-
+  
   return (
     <div >
       <img

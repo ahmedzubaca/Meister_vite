@@ -6,7 +6,6 @@ const ProjectCard = ({project, handleProjectClick}) => {
 
   const [isHover, setIsHover] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  console.log(isLoaded);
 
   return( 
     <div  className={styles.overallContainer}> 
@@ -14,8 +13,7 @@ const ProjectCard = ({project, handleProjectClick}) => {
         <div className={styles.imgContainer}>
         <img src={project.coverImageLight} alt='slika'              
               className={`${styles.projectImg} ${isHover ? styles.projectImgHovered : ''}`}
-              style={{display: isLoaded ? 'none' : 'grid'}}
-              onLoad={() => setIsLoaded(true)}
+              style={{display: isLoaded ? 'none' : 'grid'}}              
               onClick={() => handleProjectClick(project)}
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}
