@@ -50,11 +50,11 @@ const ProjectsDetails = () => {
     const diff = touchEndX - touchStartX.current;
 
     if (diff > 50 ) {
-      handlePreviousArrow();
+      handlePreviousArrow();      
       setSliderMob(prev => !prev)
     }
     if (diff < -50 ) {
-      handleNextArrow();
+      handleNextArrow();      
       setSliderMob(prev => !prev)
     }
     touchStartX.current = null;    
@@ -68,7 +68,9 @@ const ProjectsDetails = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };    
-  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps 
+  
+  console.log(slideIndex);
 
   return (
     <> 
