@@ -68,10 +68,8 @@ const ProjectsDetails = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };    
-  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps 
+  }, [sliderMob]); // eslint-disable-line react-hooks/exhaustive-deps
   
-  console.log(slideIndex);
-
   return (
     <> 
       <div className={styles.backgroundProjects}>

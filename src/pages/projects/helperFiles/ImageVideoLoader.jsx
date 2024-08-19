@@ -11,9 +11,8 @@ export const ImageLoader = ({ lightSrc, heavySrc, imgStyle }) => {
         alt='slika'
         className={imgStyle}
         style={{
-          display: loaded ? 'none' : 'block',
-          filter: 'blur(10px)', // Optional: Add a blur effect to the light image
-          transition: 'opacity 0.5s ease-in-out',
+          display: loaded ? 'none' : 'block',          
+          transition: 'opacity 0.3s ease-in-out',
         }}
       />
       <img
@@ -22,7 +21,7 @@ export const ImageLoader = ({ lightSrc, heavySrc, imgStyle }) => {
         className={imgStyle}
         style={{
           display: loaded ? 'block' : 'none',
-          transition: 'opacity 0.5s ease-in-out',
+          transition: 'opacity 0.3s ease-in-out',
         }}
         onLoad={() => setLoaded(true)}
       />
