@@ -1,6 +1,6 @@
-import projecting from '../images/servicesIcons/projecting.jpg';
+import projecting from '../images/servicesIcons/projecting.png';
 import rohBau from '../images/servicesIcons/rohBau.png';
-import kljucURuke from '../images/servicesIcons/kljucURuke.jpg';
+import kljucURuke from '../images/servicesIcons/kljucURuke.png';
 import prodaja from '../images/servicesIcons/prodaja.png';
 
 export const servicesCardsData = 
