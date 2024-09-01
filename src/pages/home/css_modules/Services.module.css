@@ -35,19 +35,21 @@
   filter: brightness(120%);
   z-index: -1;
 }
+
 .contentContainer {
   width: 100%;
   min-height: 100%;
-  margin-top: 10vh;   
+  padding-top: 7vh;
+  box-sizing: border-box;   
 }
 .titleDiv {  
   width: 100%;
   font-size: 2rem;
   font-weight: 800;
-  color: maroon;
-  margin-top: 3vh;  
+  color: maroon;  
   margin-bottom: 7vh;
-  text-align: center;  
+  text-align: center;
+  box-sizing: border-box;  
 }
 .servicesContainer {  
   display: grid;

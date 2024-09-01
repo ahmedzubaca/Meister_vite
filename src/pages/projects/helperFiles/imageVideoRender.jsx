@@ -1,6 +1,6 @@
-import { ImageLoader } from "./ImageVideoLoader";
+import { ImageLoader } from "./ImageLoader";
 
-export const imageVideoRender = (imgLight, imgNormal, imgStyle, videoStyle) => {
+export const imageVideoRender = (imgLight, imgNormal, imgStyle) => {
   const getFileType = (filename) => {
     const extension = filename.split('.').pop();
     if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
@@ -11,21 +11,20 @@ export const imageVideoRender = (imgLight, imgNormal, imgStyle, videoStyle) => {
     return null;
   };  
   const fileType = getFileType(imgLight);
-  if (fileType === 'image') {      
-    return (     
-        <ImageLoader 
-          lightSrc={imgLight}
-          heavySrc={imgNormal}
-          imgStyle={imgStyle}
-        />
-    )    
-  } else if (fileType === 'video') {      
-    return (
-      <video controls autoPlay className={videoStyle} >
-        <source src={imgLight} type={`video/${imgLight.split('.').pop()}`}  />
+
+  return(    
+    fileType === 'image' ?
+      <ImageLoader 
+              lightSrc={imgLight}
+              heavySrc={imgNormal}
+              imgStyle={imgStyle}
+      /> 
+    : 
+      fileType === 'video' ?      
+        <video controls autoPlay className={imgStyle} >
+            <source src={imgLight} type={`video/${imgLight.split('.').pop()}`}  />
         Your browser does not support the video tag.
-      </video>
-    );
-  }
-  return null;
+        </video>
+      : null   
+  )
 };

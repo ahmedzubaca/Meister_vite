@@ -1,7 +1,7 @@
 .futerContainer {  
   display: flex;
   flex-direction: column;  
-  background-color: lightgrey;
+  background-color: rgb(24, 24, 24);
   padding: 2vh 10vw 6vh;    
 }
 .menuContainer {
@@ -12,7 +12,7 @@
 .menuContainer > h4, p, a {
   margin: 0;
   text-align: left;  
-  color: rgb(81, 78, 78); 
+  color: rgb(150, 149, 149); 
 }
 .menuContainer > p {  
   font-size: 1rem;  

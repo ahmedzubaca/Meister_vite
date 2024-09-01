@@ -3,14 +3,14 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 10vh;
+  height: 90px;
   flex-direction: row;
   align-items: center;  
   z-index: 1000;  
   box-sizing: border-box;  
 }
 .containerBackground {
-  background-color: rgb(169, 136, 136);
+  background-color: rgb(7, 7, 7);
   top: 0;  
   opacity: 0.8;  
 }  
@@ -21,10 +21,11 @@
 }
 .menuContainer{
   width: 20%;
-  padding-left: 5%;
-  text-align: center;  
+  padding-left: 10%;
+  text-align: left; 
+  box-sizing: border-box; 
 }
-.menue {    
+.menu {    
   min-width: 25px;
   min-height: 25px;    
   cursor: pointer;
@@ -51,9 +52,17 @@
 .linksContainerOnMenueClick {
   display: flex;    
   flex-direction: column; 
-  list-style-type: none; 
-  align-self: start;
+  list-style-type: none;    
   gap: 25px;
+}
+.linksContainerOnMenueClickBackground {
+  position: relative;
+  margin-top: 0;
+  background-color: rgb(7, 7, 7);
+  opacity:0.8;
+  width: 100%;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 .menuClosed {
   display: flex;    
@@ -71,6 +80,15 @@
   .linksContainerOnMenueClick {
     width: 20%;
     text-align: center;  
+  }  
+  .linksContainerOnMenueClickBackground {
+    margin-top: 0;
+    background-color: rgb(7, 7, 7);
+    opacity:0.9;
+    width: 100%;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+      
   }
   .menuClosed {
     width: 20%;

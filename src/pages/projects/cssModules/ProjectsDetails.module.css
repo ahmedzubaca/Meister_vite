@@ -24,11 +24,11 @@
   box-sizing: border-box;
 }
 .backButton {
-  width: 150px;
+  width: 130px;
   font-size: 1rem;
-  font-weight: 600;
-  color: rgb(76, 59, 59);
-  background-color: rgb(233, 226, 226);
+  font-weight: 500;
+  color: white;
+  background: none;  
   height: 30px;
   cursor: pointer;
 }
@@ -68,11 +68,7 @@
   width: 100%;
   max-width: 870px;
   height: auto;         
-}
-.video {
-  width: 100%;    
-  height: 470px;  
-}  
+} 
 .circlesContainer{
   display: flex;
   justify-content: center; 
@@ -101,6 +97,7 @@
 @media screen and (max-width: 499px) {
   .buttonContainer {
     margin-top: 0;
+    margin-bottom: 10vh;
   }
   .projectInfo > p {      
     padding-left: 0;
@@ -127,6 +124,15 @@
 @media screen and (min-width: 500px) and (max-width: 949px) and (max-height: 499px) {
   .buttonContainer {
     margin-top: 0vh;
+  }
+  .backButton {
+    width: 150px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: none;  
+    height: 30px;
+    cursor: pointer;
   }
   .projectCardContainer {
     margin-top: 4vh;

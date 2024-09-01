@@ -99,8 +99,8 @@ const ProjectsDetails = () => {
                   onClick={handlePreviousArrow} />
             </div>      
             <div className={styles.imageContainer}> 
-              {
-                imageVideoRender(imagesLight[slideIndex], imagesNormal[slideIndex], styles.image, styles.video)                  
+              {                
+                imageVideoRender(imagesLight[slideIndex], imagesNormal[slideIndex], styles.image)                  
               }      
             </div>
             <div className={styles.arrowContainer}> 

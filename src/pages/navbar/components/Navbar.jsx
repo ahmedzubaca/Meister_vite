@@ -20,7 +20,12 @@ const Navbar = () => {
   const lastYRef = useRef(0);  
 
   const togleMenu = () => {   
-      dispatch({type: 'TOGGLE_MENU'})
+      dispatch({type: 'TOGGLE_MENU'});                
+  }
+
+  const handleNavBarBackground = (fromLink) => {    
+    setHasBackground(fromLink)
+    window.scrollTo(0, 0)
   }
 
   useMotionValueEvent(scrollY, "change", (y) => {
@@ -33,27 +38,25 @@ const Navbar = () => {
       } else {
         setHasBackground(!scrollingDown);
       }
+      if(!hasBackground)
       lastYRef.current = y;
     }      
   });
 
   const y = useMotionValue(-50);
-  const opacity = useTransform(y, [-80, -30, 0, 10], [0, 0, 0.5, 1]);
+  const opacity = useTransform(y, [-80, -30, 0, 10], !hasBackground ? [0, 0, 0.5, 1] : [0, 0, 1, 1] );
   const menuVars = {
     initial: {
-      y: -40,
-      opacity: 0
+      y: -40,     
     },
     animate: {
-      y: 10,
-      opacity: 1,
+      y: hasBackground ? 0 : 10,      
       transition: {
         duration: 0.5,        
       },
     },
     exit: {
-      y: -80,
-      opacity: 0,
+      y: -80,      
       transition: {        
         duration: 0.6,        
       },
@@ -97,11 +100,13 @@ const Navbar = () => {
           className={styles.logoMenueMediaContainer}
         >  
           <div className={styles.menuContainer}>            
-            <AiOutlineMenu className={styles.menue} onClick={togleMenu}  />
+            <AiOutlineMenu className={styles.menu} onClick={togleMenu}  />
           </div>
           <div className={styles.logoContainer}>
           <Link to='/'>
-            <img className={styles.logo} src={Logo} alt="logo" />
+            <img className={styles.logo} src={Logo} alt="logo"
+              onClick={() => handleNavBarBackground(false)} 
+            />
           </Link> 
           </div> 
           <div className={styles.socialMediaContainer}>
@@ -118,13 +123,16 @@ const Navbar = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className={state.isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed}          
+                className={`${state.isMenuOpened ? styles.linksContainerOnMenueClick :  styles.menuClosed} ${
+                  state.isMenuOpened && hasBackground ? styles.linksContainerOnMenueClickBackground : ''
+                  }`}          
                 >
                 {
                   navItems.map((item, index) => (
                     <CustomLink key={index} 
                                 navItem={item}
                                 togleMenu={togleMenu}
+                                handleNavBarBackground={handleNavBarBackground}
                                 className={state.isMenuOpened ? styles.menuClosed : ''} />
                   ))
                 }
@@ -149,7 +157,9 @@ const Navbar = () => {
         >
           <div className={styles.logoContainer}>
           <Link to='/'>
-            <img className={styles.logo} src={Logo} alt="logo" /> 
+            <img className={styles.logo} src={Logo} alt="logo" 
+              onClick={() => handleNavBarBackground(false)}
+            /> 
           </Link>
           </div>
           <ul className={styles.linksContainer}>
