@@ -1,5 +1,6 @@
 .overallContainer {  
-  background: url('../images/titlePage.jpg') no-repeat;
+  background: linear-gradient(to right, rgba(106, 6, 6, 0.7) 50%,  rgba(255, 255, 255, 0) 50%),              
+              url('../images/titlePage.jpg') no-repeat;
   background-size: cover;
   background-position: bottom center;
   height: 100vh;
