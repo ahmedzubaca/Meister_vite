@@ -1,5 +1,5 @@
 .servicesBackground {  
-  background: linear-gradient(to right, rgba(106, 6, 6, 0.7) 50%,  rgba(9, 9, 9, 0.4) 50%),
+  background: linear-gradient(to right, rgba(106, 6, 6, 0.7) 50%,  rgba(9, 9, 9, 0.4) 50%),              
               url('../images/services.jpg') no-repeat;
   background-size: cover;
   background-position: center center;
