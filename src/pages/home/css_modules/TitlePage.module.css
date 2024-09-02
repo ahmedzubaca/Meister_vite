@@ -1,7 +1,7 @@
 .overallContainer {  
   background: linear-gradient(to right, rgba(106, 6, 6, 0.7) 50%,  rgba(255, 255, 255, 0) 50%),
-              /* linear-gradient(to bottom, rgb(6, 6, 6, 0.8), rgb(6, 6, 6, 0.6)2%, rgb(6, 6, 6, 0.4)5%, 
-                  rgb(6, 6, 6, 0.2)8%, rgb(6, 6, 6, 0.1)10%, rgb(6, 6, 6, 0.05)12%),  */
+              linear-gradient(to bottom, rgb(6, 6, 6, 0.8), rgb(6, 6, 6, 0.6)2%, rgb(6, 6, 6, 0.4)5%, 
+                  rgb(6, 6, 6, 0.2)8%, rgb(6, 6, 6, 0.1)10%, rgb(6, 6, 6, 0.05)12%), 
               url('../images/titlePage.jpg') no-repeat;
   background-size: cover;
   background-position: bottom center;
