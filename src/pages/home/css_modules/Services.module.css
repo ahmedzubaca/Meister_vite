@@ -1,53 +1,15 @@
-.overallContainer {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;  
-  font-family: Arial, sans-serif;
-  overflow: hidden;  
-}
-.overallContainer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/scroll_one.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(3px); 
-  z-index: -2;
-}
-.overallContainer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(83, 82, 82, 0.9),
-    rgba(254, 253, 253, 0.6) 15%
-  );
-  filter: brightness(120%);
-  z-index: -1;
-}
-
-.contentContainer {
+.contentContainer {  
   width: 100%;
   min-height: 100%;
-  padding-top: 7vh;
-  box-sizing: border-box;   
+  box-sizing: border-box;  
 }
 .titleDiv {  
   width: 100%;
   font-size: 2rem;
   font-weight: 800;
-  color: maroon;  
-  margin-bottom: 7vh;
+  color: rgb(214, 214, 214); 
+  padding-top: 7vh; 
+  padding-bottom: 7vh;
   text-align: center;
   box-sizing: border-box;  
 }
@@ -56,17 +18,20 @@
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 2vw;
   padding-left: 2vw;
-  padding-right: 3vw;  
+  padding-right: 3vw;
+  box-sizing: border-box;  
 }
 .cardContainer {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 40% 10% 50%; 
   height: 70vh;    
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(226, 225, 225, 0.4);
   align-items: center;
   text-align: center;
-  padding: 0 5px;  
+  padding: 0 5px; 
+  box-sizing: border-box;
+  color: rgb(195, 195, 195); 
 }
 .icon {  
   width: 45%;
@@ -82,7 +47,8 @@
 .serviceDescription { 
  padding-top: 2vh;  
  align-self: first baseline;
- font-size: 0.9rem;   
+ font-size: 0.9rem;
+ box-sizing: border-box;   
 }
 
 @media screen and (max-width: 1100px) {
@@ -94,11 +60,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {  
- .contentContainer {
-  margin-top: 5vh;
-  margin-bottom: 5vh;      
-  }
+@media screen and (max-width: 900px) {
   .servicesContainer {    
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));      
   }  
@@ -107,6 +69,12 @@
   }
   .serviceDescription {    
    font-size: 0.85rem;   
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .servicesContainer {    
+    grid-template-columns: 1fr 1fr;      
   }
 }
 
@@ -119,7 +87,7 @@
     grid-template-columns: 45% 45%;
     grid-template-rows: 35vh 65vh;
     justify-content: space-evenly;     
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 4px 8px rgba(226, 225, 225, 0.4); 
     align-items: center;
     text-align: center;    
   }
@@ -134,10 +102,9 @@
 }
 
 @media screen and (max-width: 499px) {
-  .contentContainer {
-    margin-top: 5vh;
-    margin-bottom: 3vh;      
-  } 
+  .titleDiv { 
+    padding-bottom: 4vh;
+  }  
   .cardContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -147,15 +114,12 @@
     align-items: center;
     text-align: center;
     padding: 0 5px;  
-  }
-  .titleDiv {    
-    margin-bottom: 5vh;
-  }
+  }  
   .serviceTitle h3 {
     font-size: 0.8rem; 
   }
   .serviceDescription {    
-   font-size: 0.8rem;   
+   font-size: 0.85rem;   
   }
 }
 

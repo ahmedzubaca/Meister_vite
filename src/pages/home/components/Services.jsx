@@ -3,8 +3,7 @@ import {servicesCardsData} from '../helper/servicesCardData';
 
 function Services() {
   
-  return(
-    <div className={styles.overallContainer} >
+  return(    
       <div className={styles.contentContainer}>
         <div className={styles.titleDiv}> VAŠA FIRMA ZA SVE</div>
         <div className={styles.servicesContainer}>         
@@ -24,8 +23,7 @@ function Services() {
             ))
           }          
         </div> 
-      </div>     
-    </div>
+      </div>
   )
 }
 export default Services;

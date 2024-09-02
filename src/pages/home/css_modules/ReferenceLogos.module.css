@@ -1,14 +1,10 @@
-.overallContainer {
-  display: grid;
-  align-content: start;
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 5vh;  
-  font-family: Arial, sans-serif;  
-  background-image: url('../images/scroll_two.jpg');
+.overallContainer {  
+  background: linear-gradient(to right, rgba(106, 6, 6, 0.7) 50%,  rgba(9, 9, 9, 0.4) 50%), 
+              url('../images/references.jpg') no-repeat;
   background-size: cover;
-  background-position: center;
-  box-sizing: border-box;  
+  background-position: bottom center;
+  min-height: 100vh;
+  width: 100vw;  
 }
 .textContainer{
   padding-left: 3vw;
@@ -18,7 +14,7 @@
 .number{
   font-size: 3.5rem;
   font-weight: 900;
-  color: maroon;
+  color: rgb(128, 124, 124);
   max-height: 3.5rem;
   margin-bottom: 1rem;    
 }
