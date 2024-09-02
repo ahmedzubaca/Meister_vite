@@ -3,7 +3,7 @@ import Footer from '../../../components/Footer';
 import Services from './Services';
 import ReferenceLogos from './ReferenceLogos';
 import { motion } from 'framer-motion';
-import styles from '../css_modules/home.module.css';
+import styles from '../css_modules/Home.module.css';
 
 function Home() {
   
