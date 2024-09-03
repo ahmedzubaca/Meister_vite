@@ -5,11 +5,10 @@ const PageTransition = ({children}) => {
   return(
     <div>
       <motion.div
-        initial={{scaleY: 0.2}} 
-        animate={{scaleY: 1, transition:{duration: 0.3}}}
-        exit={{scaleY: 0.2, transition:{duration: 0.3}}}
-        style={{overflow: 'hidden'}}
-                 
+        initial={{y: '100%'}} 
+        animate={{y: 0}}
+        exit={{opacity: 1, position: 'absolute', top: 0, left: 0}} 
+        transition= {{duration: 0.75}}                    
       >
         {children}
       </motion.div>
