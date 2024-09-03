@@ -18,8 +18,7 @@ function RoutesData() {
         <Route path='/projects/:projectTitle' element={<ProjectsDetails />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-    </AnimatePresence>
-    
+    </AnimatePresence>    
   );
 }
 export default RoutesData;
