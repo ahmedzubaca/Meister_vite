@@ -110,8 +110,22 @@ const Navbar = () => {
           </Link> 
           </div> 
           <div className={styles.socialMediaContainer}>
-            <FaFacebook className={styles.facebook} /> 
-            <FaInstagram className={styles.instagram} />
+            <a 
+              href="https://www.facebook.com/meisterdoo/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.facebook}
+            >
+              <FaFacebook />
+            </a>
+            <a 
+              href="https://www.facebook.com/meisterdoo/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.instagram}
+            >
+              <FaInstagram />
+            </a>
           </div>
         </motion.div>
         <AnimatePresence initial={false}>
@@ -170,8 +184,22 @@ const Navbar = () => {
           }
           </ul> 
           <div className={styles.socialMediaContainer}>
-            <FaFacebook className={styles.facebook} /> 
-            <FaInstagram className={styles.instagram} />
+            <a 
+              href="https://www.facebook.com/meisterdoo/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.facebook}
+            >
+              <FaFacebook />
+            </a>
+            <a 
+              href="https://www.facebook.com/meisterdoo/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.instagram}
+            >
+              <FaInstagram />
+            </a>
           </div>
         </motion.div>     
       }      
