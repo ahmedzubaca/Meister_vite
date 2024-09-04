@@ -7,6 +7,7 @@ import { useSpring, animated } from 'react-spring';
 import { useMenu } from "../../../helperFunctions/MenueContext";
 import styles from '../cssModules/Projects.module.css';
 import PageTransition from '../../../helperFunctions/PageTransition';
+import { Helmet } from 'react-helmet-async';
 
 const Projects = () => {  
   
@@ -30,22 +31,29 @@ const Projects = () => {
   }
 
   return (
-    <PageTransition>
-      <div className={`${styles.pageContainer} ${ isLandscape ? styles.pageContainerLandscape : null}`}>
-        <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={`${styles.title} ${isLandscape ? styles.titleLandscape : '' }`}> PROJEKTI </animated.div>      
-        <div className= {`${styles.projectsCardsContainer} ${ isLandscape ? styles.projectsCardsContainerLandscape : ''}`}>       
-          {          
-            projectsData.map((project, index) => (            
-              <ProjectCard  key={index}
-                            project = { project } 
-                            handleProjectClick = {handlProjectClick}
-              />          
-            ))
-          }    
-        </div>  
-        <Footer />       
-      </div>
-    </PageTransition>
+    <>
+      <Helmet>
+        <title> Projekti </title>
+        <meta name='description' content='Uspješno realizujemo projekte od relativno jednostavnih do najzahtjevnijih' />
+        <link rel='canonical' href='/projects' />
+      </Helmet>
+      <PageTransition>
+        <div className={`${styles.pageContainer} ${ isLandscape ? styles.pageContainerLandscape : null}`}>
+          <animated.div style={window.innerWidth <= 900 ? moveDownUp : null} className={`${styles.title} ${isLandscape ? styles.titleLandscape : '' }`}> PROJEKTI </animated.div>      
+          <div className= {`${styles.projectsCardsContainer} ${ isLandscape ? styles.projectsCardsContainerLandscape : ''}`}>       
+            {          
+              projectsData.map((project, index) => (            
+                <ProjectCard  key={index}
+                              project = { project } 
+                              handleProjectClick = {handlProjectClick}
+                />          
+              ))
+            }    
+          </div>  
+          <Footer />       
+        </div>
+      </PageTransition>
+    </>
   )
 }
 export default Projects;
