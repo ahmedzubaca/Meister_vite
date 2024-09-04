@@ -1,14 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Logo from '../icons/meister-logo.png';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import FbInstagram from "./FbInstagram";
 import styles from '../cssModules/Navbar.module.css';
 import { navItems} from '../helper/navItems';
 import CustomLink from "./CustomLink";
 import { useMenu } from "../../../helperFunctions/MenueContext";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import {Link} from 'react-router-dom';
-
 
 const Navbar = () => {
 
@@ -110,22 +109,7 @@ const Navbar = () => {
           </Link> 
           </div> 
           <div className={styles.socialMediaContainer}>
-            <a 
-              href="https://www.facebook.com/meisterdoo/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.facebook}
-            >
-              <FaFacebook />
-            </a>
-            <a 
-              href="https://www.facebook.com/meisterdoo/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.instagram}
-            >
-              <FaInstagram />
-            </a>
+            <FbInstagram />
           </div>
         </motion.div>
         <AnimatePresence initial={false}>
@@ -184,22 +168,7 @@ const Navbar = () => {
           }
           </ul> 
           <div className={styles.socialMediaContainer}>
-            <a 
-              href="https://www.facebook.com/meisterdoo/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.facebook}
-            >
-              <FaFacebook />
-            </a>
-            <a 
-              href="https://www.facebook.com/meisterdoo/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.instagram}
-            >
-              <FaInstagram />
-            </a>
+            <FbInstagram />
           </div>
         </motion.div>     
       }      
