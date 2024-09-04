@@ -21,7 +21,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title> O kompaniji </title>
+        <title> O nama </title>
         <meta name='description' 
               content='Meister d.o.o. je primarno orjentisan na brzu i kvalitetnu izgradnju ali jednako kvalitetno nudi
                        rješenja za arhitektonske i statičke projekte kao i profesionalnu pomoć u prodaji nekretnina.' />
