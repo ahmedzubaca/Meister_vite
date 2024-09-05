@@ -1,10 +1,12 @@
 import { BrowserRouter as Router} from "react-router-dom";
 import Navbar from '../navbar/components/Navbar';
 import RoutesData from "./RoutesData";
-import { MenuProvider } from "../../helperFunctions/MenueContext";
+import { MenuProvider } from "../../contextFiles/menuContext/MenuContext";
+import { ScrollProvider } from "../../contextFiles/scrollContext/ScrollContext";
 
 const App = () => {
   return (
+    <ScrollProvider >
     <MenuProvider>
       <Router>
         <header>
@@ -12,7 +14,8 @@ const App = () => {
         </header>
         <RoutesData /> 
       </Router>
-    </MenuProvider>            
+    </MenuProvider>
+    </ScrollProvider>            
   );  
 }
 export default App;

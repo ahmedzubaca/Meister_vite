@@ -1,7 +1,7 @@
 import Services from '../home/components/Services';
 import ReferenceLogos from '../home/components/ReferenceLogos'
 import Footer from '../../components/Footer';
-import { useMenu } from "../../helperFunctions/MenueContext";
+import { useMenuContext } from "../../contextFiles/menuContext/useMenuContext";
 import { useSpring, animated } from 'react-spring';
 import styles from './about.module.css';
 import PageTransition from '../../helperFunctions/PageTransition';
@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet-async';
 
 const About = () => {
 
-  const { state } = useMenu();
+  const { state } = useMenuContext();
   const moveDownUp = useSpring({    
     paddingTop: state.isMenuOpened ? 220 : 50,    
     config: {

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSpring, animated } from 'react-spring';
 import styles from './contact.module.css';
-import { useMenu } from '../../helperFunctions/MenueContext';
+import { useMenuContext } from '../../contextFiles/menuContext/useMenuContext';
 import PageTransition from '../../helperFunctions/PageTransition';
 import { Helmet } from 'react-helmet-async';
 
@@ -18,7 +18,7 @@ const Contact = () => {
     message: ''
   }
     
-  const { state } = useMenu();
+  const { state } = useMenuContext();
   const [userInfo, setUserInfo] = useState(initUserInfo);  
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);

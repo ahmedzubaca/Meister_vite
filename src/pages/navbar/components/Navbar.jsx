@@ -5,13 +5,13 @@ import FbInstagram from "./FbInstagram";
 import styles from '../cssModules/Navbar.module.css';
 import { navItems} from '../helper/navItems';
 import CustomLink from "./CustomLink";
-import { useMenu } from "../../../helperFunctions/MenueContext";
+import { useMenuContext } from "../../../contextFiles/menuContext/useMenuContext";
 import { motion, useMotionValueEvent, useScroll, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
 
-  const {state, dispatch} = useMenu();
+  const {state, dispatch} = useMenuContext();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isHidden, setIsHidden] = useState(false);
   const [hasBackground, setHasBackground] = useState(false)

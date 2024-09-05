@@ -1,3 +1,4 @@
+import Counter from './Counter';
 import styles from '../css_modules/ReferenceLogos.module.css';
 import {referenceLogosData} from '../helper/referenceLogosData';
 
@@ -5,10 +6,7 @@ function ReferenceLogos() {
   
   return(
     <div className={styles.overallContainer}>
-      <div className={styles.textContainer}>
-        <p className={styles.number}> 250.000 + </p>
-        <p className={styles.text}>izgrađenih metara kvadratnih</p>
-      </div> 
+      <Counter /> 
       <div className={styles.logosContainer} >        
         {
           referenceLogosData.map((logo, index) => (

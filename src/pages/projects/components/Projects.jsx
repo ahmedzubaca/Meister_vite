@@ -1,20 +1,23 @@
+import { useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProjectCard from "./ProjectCard";
 import useWindowResize from '../helperFiles/windowWidth';
 import Footer from '../../../components/Footer';
 import {projectsData} from '../helperFiles/projectsData';
 import { useSpring, animated } from 'react-spring';
-import { useMenu } from "../../../helperFunctions/MenueContext";
+import { useMenuContext } from "../../../contextFiles/menuContext/useMenuContext";
 import styles from '../cssModules/Projects.module.css';
 import PageTransition from '../../../helperFunctions/PageTransition';
 import { Helmet } from 'react-helmet-async';
+import { useScrollContext } from '../../../contextFiles/scrollContext/useScrollContext';
 
 const Projects = () => {  
   
   const navigate = useNavigate();
   const windowSize = useWindowResize();
   const isLandscape = (windowSize.windowWidth >=500 &&  windowSize.windowWidth < 950) && windowSize.windowHeight < 500 ;
-  const { state } = useMenu();
+  const { state } = useMenuContext();
+  const { scrollPosition, setScrollPosition } = useScrollContext();
   
   const moveDownUp = useSpring({    
     marginTop: state.isMenuOpened ? 220 : 100,    
@@ -23,8 +26,13 @@ const Projects = () => {
       friction: 26
     }
   });
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, scrollPosition);
+  }, [scrollPosition]);
   
   const handlProjectClick = (project) => {
+    setScrollPosition(window.scrollY);
     const dashIndex = project.projectId.indexOf('_') + 1;
     const projectTitle = project.projectId.substring(dashIndex);          
     navigate(`/projects/${projectTitle}`, { state: { project }} )

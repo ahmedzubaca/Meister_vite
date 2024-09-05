@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 const MenuContext = createContext();
@@ -38,10 +38,7 @@ export const MenuProvider = ({ children }) => {
     </MenuContext.Provider>
   );
 };
-
-export const useMenu = () => {
-  return useContext(MenuContext);
-};
+export default MenuContext;
 
 MenuProvider.propTypes = {
   children: PropTypes.any.isRequired  
